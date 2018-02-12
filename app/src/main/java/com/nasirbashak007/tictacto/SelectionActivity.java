@@ -49,7 +49,7 @@ public class SelectionActivity extends AppCompatActivity {
     public void startTheGame(View view) {
         Intent intent = new Intent(SelectionActivity.this, Main2Activity.class);
         Bundle bundle = new Bundle();
-        pass1 = "2";
+        pass1 = "1";
         bundle.putString("two", pass1);
         intent.putExtras(bundle);
         startActivity(intent);
@@ -59,7 +59,7 @@ public class SelectionActivity extends AppCompatActivity {
 
         Intent intent = new Intent(SelectionActivity.this, SinglePlayerActivity.class);
         Bundle bundle = new Bundle();
-        pass2 = "1E";
+        pass2 = "1";
         bundle.putString("two", pass2);
         intent.putExtras(bundle);
         startActivity(intent);
@@ -68,7 +68,7 @@ public class SelectionActivity extends AppCompatActivity {
     public void startTheGameMedium(View view) {
         Intent intent = new Intent(SelectionActivity.this, SinglePlayerActivity.class);
         Bundle bundle = new Bundle();
-        pass2 = "1M";
+        pass2 = "2";
         bundle.putString("two", pass2);
         intent.putExtras(bundle);
         startActivity(intent);
@@ -78,7 +78,7 @@ public class SelectionActivity extends AppCompatActivity {
 
         Intent intent = new Intent(SelectionActivity.this, SinglePlayerActivity.class);
         Bundle bundle = new Bundle();
-        pass2 = "1H";
+        pass2 = "3";
         bundle.putString("two", pass2);
         intent.putExtras(bundle);
         startActivity(intent);

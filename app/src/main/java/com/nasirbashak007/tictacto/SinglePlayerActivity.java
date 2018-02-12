@@ -21,6 +21,7 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
     Button Continue, Home;
     int P1, P2, Draw;
     String MODE;
+    int Mode;
     Boolean flag = false;
     Random r = new Random();
     int[] buttonClicks = {0, 0, 0, 0, 0, 0, 0, 0, 0};
@@ -37,7 +38,7 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
 
         Bundle bundle = getIntent().getExtras();
         MODE = bundle.getString("two").toString();
-
+        Mode = Integer.parseInt(MODE);
 
         Toast.makeText(getApplicationContext(), MODE, Toast.LENGTH_SHORT).show();
     }
@@ -155,7 +156,13 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                     buttonClicks[0] = 1;
                     B1.setTextColor(Color.parseColor("#0b48d8"));
                     rotate(B1);
-                    computer();
+                    if (Mode == 1) {
+                        computer();
+                    } else if (Mode == 2) {
+                        computer(B1);
+                    } else {
+                        computer();
+                    }
                     //setRandomly();
                 }
             }
@@ -170,7 +177,13 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                     buttonClicks[1] = 1;
                     B2.setTextColor(Color.parseColor("#0b48d8"));
                     rotate(B2);
-                    computer();
+                    if (Mode == 1) {
+                        computer();
+                    } else if (Mode == 2) {
+                        computer(B2);
+                    } else {
+                        computer();
+                    }
                     //setRandomly();
                 }
             }
@@ -185,7 +198,13 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                     buttonClicks[2] = 1;
                     B3.setTextColor(Color.parseColor("#0b48d8"));
                     rotate(B3);
-                    computer();
+                    if (Mode == 1) {
+                        computer();
+                    } else if (Mode == 2) {
+                        computer(B3);
+                    } else {
+                        computer();
+                    }
                     //setRandomly();
                 }
             }
@@ -200,7 +219,13 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                     buttonClicks[3] = 1;
                     B4.setTextColor(Color.parseColor("#0b48d8"));
                     rotate(B4);
-                    computer();
+                    if (Mode == 1) {
+                        computer();
+                    } else if (Mode == 2) {
+                        computer(B4);
+                    } else {
+                        computer();
+                    }
                     //setRandomly();
                 }
             }
@@ -215,7 +240,13 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                     buttonClicks[4] = 1;
                     B5.setTextColor(Color.parseColor("#0b48d8"));
                     rotate(B5);
-                    computer();
+                    if (Mode == 1) {
+                        computer();
+                    } else if (Mode == 2) {
+                        computer(B5);
+                    } else {
+                        computer();
+                    }
                     //setRandomly();
                 }
             }
@@ -230,7 +261,13 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                     buttonClicks[5] = 1;
                     B6.setTextColor(Color.parseColor("#0b48d8"));
                     rotate(B6);
-                    computer();
+                    if (Mode == 1) {
+                        computer();
+                    } else if (Mode == 2) {
+                        computer(B6);
+                    } else {
+                        computer();
+                    }
                     //setRandomly();
                 }
             }
@@ -245,7 +282,13 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                     buttonClicks[6] = 1;
                     B7.setTextColor(Color.parseColor("#0b48d8"));
                     rotate(B7);
-                    computer();
+                    if (Mode == 1) {
+                        computer();
+                    } else if (Mode == 2) {
+                        computer(B7);
+                    } else {
+                        computer();
+                    }
                     //setRandomly();
                 }
             }
@@ -260,7 +303,13 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                     buttonClicks[7] = 1;
                     B8.setTextColor(Color.parseColor("#0b48d8"));
                     rotate(B8);
-                    computer();
+                    if (Mode == 1) {
+                        computer();
+                    } else if (Mode == 2) {
+                        computer(B8);
+                    } else {
+                        computer();
+                    }
                     //setRandomly();
                 }
             }
@@ -275,7 +324,13 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                     buttonClicks[8] = 1;
                     B9.setTextColor(Color.parseColor("#0b48d8"));
                     rotate(B9);
-                    computer();
+                    if (Mode == 1) {
+                        computer();
+                    } else if (Mode == 2) {
+                        computer(B9);
+                    } else {
+                        computer();
+                    }
                     //setRandomly();
                 }
             }
@@ -292,6 +347,501 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
 
 
     }
+
+    //this is for the medium
+    public int gen2(int n1, int n2, int n3) {
+
+        int num = r.nextInt(n3 - n1 + 1) + n1;
+        if (num == n1) {
+            return num;
+        } else if (num == n2) {
+            return num;
+        } else if (num == n3) {
+            return num;
+        } else {
+            return gen2(n1, n2, n3);
+        }
+
+    }
+
+    public int ForFifthCase() {
+
+        int num = r.nextInt(9) + 1;
+        if (num == 5) {
+            return ForFifthCase();
+        } else {
+            return num;
+        }
+    }
+
+
+    public int generate(int n) {
+        int num = 0;
+
+        switch (n) {
+
+            case 1: {
+                num = gen2(2, 4, 5);
+
+
+            }
+            break;
+
+            case 2: {
+                num = gen2(1, 3, 5);
+            }
+            break;
+
+            case 3: {
+                num = gen2(2, 5, 6);
+
+            }
+            break;
+
+            case 4: {
+
+                num = gen2(1, 5, 7);
+
+            }
+            break;
+
+            case 5: {
+
+                num = ForFifthCase();
+
+            }
+            break;
+
+            case 6: {
+                num = gen2(3, 5, 9);
+
+            }
+            break;
+
+            case 7: {
+                num = gen2(4, 5, 8);
+
+            }
+            break;
+
+            case 8: {
+                num = gen2(5, 7, 9);
+
+            }
+            break;
+
+            case 9: {
+                num = gen2(5, 6, 8);
+            }
+            break;
+
+        }
+
+
+        return num;
+    }
+
+
+    public void computer(Button b) {
+
+        switch (b.getId()) {
+
+            case R.id.button1: {
+
+                switch (clicks) {
+
+                    case 1: {
+                        int num = generate(1);
+                        if (num == 2) {
+                            B2.setText("O");
+                            B2.setEnabled(false);
+                            boardMatrix[0][1] = 'O';
+                            buttonClicks[1] = 1;
+                            B2.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B2);
+                        } else if (num == 4) {
+                            B4.setText("O");
+                            B4.setEnabled(false);
+                            boardMatrix[1][0] = 'O';
+                            buttonClicks[3] = 1;
+                            B4.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B4);
+                        } else if (num == 5) {
+                            B5.setText("O");
+                            B5.setEnabled(false);
+                            boardMatrix[1][1] = 'O';
+                            buttonClicks[5] = 1;
+                            B5.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B5);
+                        }
+                        clicks++;
+                        //Toast.makeText(getApplicationContext(),clicks,Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+
+                    case 3: {
+                        Toast.makeText(getApplicationContext(), "Second Switch case Button 1", Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+                }
+            }
+            break;
+
+            case R.id.button2: {
+                switch (clicks) {
+
+                    case 1: {
+
+
+                        int num = generate(2);
+                        if (num == 1) {
+                            B1.setText("O");
+                            B1.setEnabled(false);
+                            boardMatrix[0][0] = 'O';
+                            buttonClicks[0] = 1;
+                            B1.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B1);
+                        } else if (num == 3) {
+                            B3.setText("O");
+                            B3.setEnabled(false);
+                            boardMatrix[0][2] = 'O';
+                            buttonClicks[2] = 1;
+                            B3.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B3);
+                        } else if (num == 5) {
+                            B5.setText("O");
+                            B5.setEnabled(false);
+                            boardMatrix[1][1] = 'O';
+                            buttonClicks[5] = 1;
+                            B5.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B5);
+                        }
+                        clicks++;
+                    }
+                    break;
+
+                    case 3: {
+                        Toast.makeText(getApplicationContext(), "Second Switch case Button 2", Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+                }
+            }
+            break;
+
+            case R.id.button3: {
+                switch (clicks) {
+
+                    case 1: {
+
+                        int num = generate(3);
+                        if (num == 2) {
+                            B2.setText("O");
+                            B2.setEnabled(false);
+                            boardMatrix[0][1] = 'O';
+                            buttonClicks[1] = 1;
+                            B2.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B2);
+                        } else if (num == 6) {
+                            B6.setText("O");
+                            B6.setEnabled(false);
+                            boardMatrix[1][2] = 'O';
+                            buttonClicks[5] = 1;
+                            B6.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B6);
+                        } else if (num == 5) {
+                            B5.setText("O");
+                            B5.setEnabled(false);
+                            boardMatrix[1][1] = 'O';
+                            buttonClicks[5] = 1;
+                            B5.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B5);
+                        }
+                        clicks++;
+                    }
+                    break;
+
+                    case 3: {
+                        Toast.makeText(getApplicationContext(), "Second Switch case Button 3", Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+                }
+            }
+            break;
+
+            case R.id.button4: {
+
+                switch (clicks) {
+
+                    case 1: {
+                        int num = generate(4);
+                        if (num == 1) {
+                            B1.setText("O");
+                            B1.setEnabled(false);
+                            boardMatrix[0][0] = 'O';
+                            buttonClicks[0] = 1;
+                            B1.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B1);
+                        } else if (num == 7) {
+                            B7.setText("O");
+                            B7.setEnabled(false);
+                            boardMatrix[2][0] = 'O';
+                            buttonClicks[6] = 1;
+                            B7.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B7);
+                        } else if (num == 5) {
+                            B5.setText("O");
+                            B5.setEnabled(false);
+                            boardMatrix[1][1] = 'O';
+                            buttonClicks[5] = 1;
+                            B5.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B5);
+                        }
+                        clicks++;
+                    }
+                    break;
+
+                    case 3: {
+                        Toast.makeText(getApplicationContext(), "Second Switch case Button 4", Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+                }
+            }
+            break;
+            //code it
+            case R.id.button5: {
+                switch (clicks) {
+
+                    case 1: {
+                        int num = ForFifthCase();
+                        if (num == 1) {
+                            B1.setText("O");
+                            B1.setEnabled(false);
+                            boardMatrix[0][0] = 'O';
+                            buttonClicks[0] = 1;
+                            B1.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B1);
+                        } else if (num == 2) {
+                            B2.setText("O");
+                            B2.setEnabled(false);
+                            boardMatrix[0][1] = 'O';
+                            buttonClicks[1] = 1;
+                            B2.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B2);
+                        } else if (num == 3) {
+                            B3.setText("O");
+                            B3.setEnabled(false);
+                            boardMatrix[0][2] = 'O';
+                            buttonClicks[2] = 1;
+                            B3.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B3);
+                        } else if (num == 4) {
+                            B4.setText("O");
+                            B4.setEnabled(false);
+                            boardMatrix[1][0] = 'O';
+                            buttonClicks[3] = 1;
+                            B4.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B4);
+                        } else if (num == 6) {
+                            B6.setText("O");
+                            B6.setEnabled(false);
+                            boardMatrix[1][2] = 'O';
+                            buttonClicks[5] = 1;
+                            B6.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B6);
+                        } else if (num == 7) {
+                            B7.setText("O");
+                            B7.setEnabled(false);
+                            boardMatrix[2][0] = 'O';
+                            buttonClicks[6] = 1;
+                            B7.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B7);
+                        } else if (num == 8) {
+                            B8.setText("O");
+                            B8.setEnabled(false);
+                            boardMatrix[2][1] = 'O';
+                            buttonClicks[7] = 1;
+                            B8.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B8);
+                        } else if (num == 9) {
+                            B9.setText("O");
+                            B9.setEnabled(false);
+                            boardMatrix[2][2] = 'O';
+                            buttonClicks[8] = 1;
+                            B9.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B9);
+                        }
+                        clicks++;
+                    }
+                    break;
+
+                    case 3: {
+                        Toast.makeText(getApplicationContext(), "Second Switch case Button 5", Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+                }
+            }
+            break;
+
+            case R.id.button6: {
+
+                switch (clicks) {
+
+                    case 1: {
+                        int num = generate(6);
+                        if (num == 3) {
+                            B3.setText("O");
+                            B3.setEnabled(false);
+                            boardMatrix[0][2] = 'O';
+                            buttonClicks[2] = 1;
+                            B3.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B3);
+                        } else if (num == 9) {
+                            B9.setText("O");
+                            B9.setEnabled(false);
+                            boardMatrix[2][2] = 'O';
+                            buttonClicks[8] = 1;
+                            B9.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B9);
+                        } else if (num == 5) {
+                            B5.setText("O");
+                            B5.setEnabled(false);
+                            boardMatrix[1][1] = 'O';
+                            buttonClicks[5] = 1;
+                            B5.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B5);
+                        }
+                        clicks++;
+                    }
+                    break;
+
+                    case 3: {
+                        Toast.makeText(getApplicationContext(), "Second Switch case Button 6", Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+                }
+            }
+            break;
+
+            case R.id.button7: {
+                switch (clicks) {
+
+                    case 1: {
+                        int num = generate(7);
+                        if (num == 8) {
+                            B8.setText("O");
+                            B8.setEnabled(false);
+                            boardMatrix[2][1] = 'O';
+                            buttonClicks[7] = 1;
+                            B8.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B8);
+                        } else if (num == 4) {
+                            B4.setText("O");
+                            B4.setEnabled(false);
+                            boardMatrix[1][0] = 'O';
+                            buttonClicks[3] = 1;
+                            B4.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B4);
+                        } else if (num == 5) {
+                            B5.setText("O");
+                            B5.setEnabled(false);
+                            boardMatrix[1][1] = 'O';
+                            buttonClicks[5] = 1;
+                            B5.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B5);
+                        }
+                        clicks++;
+                    }
+                    break;
+
+                    case 3: {
+                        Toast.makeText(getApplicationContext(), "Second Switch case Button 7", Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+                }
+            }
+            break;
+
+            case R.id.button8: {
+                switch (clicks) {
+
+                    case 1: {
+                        int num = generate(8);
+                        if (num == 7) {
+                            B7.setText("O");
+                            B7.setEnabled(false);
+                            boardMatrix[2][0] = 'O';
+                            buttonClicks[6] = 1;
+                            B7.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B7);
+                        } else if (num == 9) {
+                            B9.setText("O");
+                            B9.setEnabled(false);
+                            boardMatrix[2][2] = 'O';
+                            buttonClicks[8] = 1;
+                            B9.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B9);
+                        } else if (num == 5) {
+                            B5.setText("O");
+                            B5.setEnabled(false);
+                            boardMatrix[1][1] = 'O';
+                            buttonClicks[5] = 1;
+                            B5.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B5);
+                        }
+                        clicks++;
+                    }
+                    break;
+
+                    case 3: {
+                        Toast.makeText(getApplicationContext(), "Second Switch case Button 8", Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+                }
+            }
+            break;
+
+            case R.id.button9: {
+                switch (clicks) {
+
+                    case 1: {
+                        int num = generate(9);
+                        if (num == 8) {
+                            B8.setText("O");
+                            B8.setEnabled(false);
+                            boardMatrix[2][1] = 'O';
+                            buttonClicks[7] = 1;
+                            B8.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B8);
+                        } else if (num == 6) {
+                            B6.setText("O");
+                            B6.setEnabled(false);
+                            boardMatrix[1][2] = 'O';
+                            buttonClicks[5] = 1;
+                            B6.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B6);
+                        } else if (num == 5) {
+                            B5.setText("O");
+                            B5.setEnabled(false);
+                            boardMatrix[1][1] = 'O';
+                            buttonClicks[5] = 1;
+                            B5.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B5);
+                        }
+                        clicks++;
+                    }
+                    break;
+
+                    case 3: {
+                        Toast.makeText(getApplicationContext(), "Second Switch case Button 9", Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+                }
+            }
+            break;
+        }
+
+    }
+
 
     private void computer() {
         if (clicks < 9) {
