@@ -28,8 +28,8 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
 
 
     private char[][] boardMatrix = {{'1', '2', '3'},
-                                    {'4', '5', '6'},
-                                    {'7', '8', '9'}};
+            {'4', '5', '6'},
+            {'7', '8', '9'}};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -453,27 +453,27 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
             Xpos = 0;
             Ypos = 2;
             return true;
-        }else if(boardMatrix[0][0] == boardMatrix[2][2]){
+        } else if (boardMatrix[0][0] == boardMatrix[2][2]) {
             Xpos = 2;
             Ypos = 2;
             return true;
-        }else if(boardMatrix[0][2] == boardMatrix[2][0]){
+        } else if (boardMatrix[0][2] == boardMatrix[2][0]) {
             Xpos = 2;
             Ypos = 0;
             return true;
-        }else if(boardMatrix[0][0] == boardMatrix[2][0]){
+        } else if (boardMatrix[0][0] == boardMatrix[2][0]) {
             Xpos = 2;
             Ypos = 0;
             return true;
-        }else if(boardMatrix[0][0] == boardMatrix[0][2]){
+        } else if (boardMatrix[0][0] == boardMatrix[0][2]) {
             Xpos = 0;
             Ypos = 2;
             return true;
-        }else if(boardMatrix[0][2] == boardMatrix[2][2]){
+        } else if (boardMatrix[0][2] == boardMatrix[2][2]) {
             Xpos = 2;
             Ypos = 2;
             return true;
-        }else if(boardMatrix[2][0] == boardMatrix[2][2]){
+        } else if (boardMatrix[2][0] == boardMatrix[2][2]) {
             Xpos = 2;
             Ypos = 2;
             return true;
@@ -498,7 +498,7 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
 
                                 }
                             }
-                                break;
+                            break;
                             case 1: {
                                 if (k == i && l == j)
                                     continue;
@@ -508,7 +508,7 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                                     return true;
                                 }
                             }
-                                break;
+                            break;
                             case 2: {
                                 if (k == i && l == j)
                                     continue;
@@ -518,7 +518,7 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                                     return true;
                                 }
                             }
-                                break;
+                            break;
                             default:
                                 break;
                         }
@@ -529,14 +529,15 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
 
         return false;
     }
-    public void NameIt(){
-        if(ComputerSecondClick()){
-           // ++clicks;
-                Toast.makeText(getApplicationContext(),Xpos+"  "+Ypos,Toast.LENGTH_LONG).show();
-            if(Xpos==0 && Ypos==1){
-                if(boardMatrix[0][2]=='O'){
+
+    public void NameIt() {
+        if (ComputerSecondClick()) {
+            // ++clicks;
+            Toast.makeText(getApplicationContext(), Xpos + "  " + Ypos, Toast.LENGTH_LONG).show();
+            if (Xpos == 0 && Ypos == 1) {
+                if (boardMatrix[0][2] == 'O') {
                     computer();
-                }else {
+                } else {
                     ++clicks;
                     B3.setText("O");
                     B3.setEnabled(false);
@@ -546,12 +547,12 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                     rotate(B3);
                 }
 
-            }else if(Xpos==0 && Ypos==2){
+            } else if (Xpos == 0 && Ypos == 2) {
 
-                if(boardMatrix[1][0]=='X'){
-                    if(boardMatrix[0][0]=='O'){
+                if (boardMatrix[1][0] == 'X') {
+                    if (boardMatrix[0][0] == 'O') {
                         computer();
-                    }else {
+                    } else {
                         ++clicks;
                         B1.setText("O");
                         B1.setEnabled(false);
@@ -561,10 +562,10 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                         rotate(B1);
                     }
 
-                }else if(boardMatrix[1][1]=='X'){
-                    if(boardMatrix[0][2]=='O'){
+                } else if (boardMatrix[1][1] == 'X') {
+                    if (boardMatrix[0][2] == 'O') {
                         computer();
-                    }else {
+                    } else {
                         ++clicks;
                         B3.setText("O");
                         B3.setEnabled(false);
@@ -574,11 +575,11 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                         rotate(B3);
                     }
 
-                }else if(boardMatrix[0][0] == boardMatrix[0][2]){
+                } else if (boardMatrix[0][0] == boardMatrix[0][2]) {
                     //B2
-                    if(boardMatrix[0][1]=='O'){
+                    if (boardMatrix[0][1] == 'O') {
                         computer();
-                    }else {
+                    } else {
                         ++clicks;
                         B2.setText("O");
                         B2.setEnabled(false);
@@ -590,11 +591,10 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                 }
 
 
-
-            }else if(Xpos==1 && Ypos==0){
-                if(boardMatrix[2][0]=='O'){
+            } else if (Xpos == 1 && Ypos == 0) {
+                if (boardMatrix[2][0] == 'O') {
                     computer();
-                }else {
+                } else {
                     ++clicks;
                     B7.setText("O");
                     B7.setEnabled(false);
@@ -604,12 +604,12 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                     rotate(B7);
                 }
 
-            }else if(Xpos==1 && Ypos==1){
+            } else if (Xpos == 1 && Ypos == 1) {
 
-                if(boardMatrix[0][0]=='X'){
-                    if(boardMatrix[2][2]=='O'){
+                if (boardMatrix[0][0] == 'X') {
+                    if (boardMatrix[2][2] == 'O') {
                         computer();
-                    }else {
+                    } else {
                         ++clicks;
                         B9.setText("O");
                         B9.setEnabled(false);
@@ -619,10 +619,10 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                         rotate(B9);
                     }
 
-                }else if(boardMatrix[0][1]=='X'){
-                    if(boardMatrix[2][1]=='O'){
+                } else if (boardMatrix[0][1] == 'X') {
+                    if (boardMatrix[2][1] == 'O') {
                         computer();
-                    }else {
+                    } else {
                         ++clicks;
                         B8.setText("O");
                         B8.setEnabled(false);
@@ -632,10 +632,10 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                         rotate(B8);
                     }
 
-                }else if(boardMatrix[0][2]=='X'){
-                    if(boardMatrix[2][0]=='O'){
+                } else if (boardMatrix[0][2] == 'X') {
+                    if (boardMatrix[2][0] == 'O') {
                         computer();
-                    }else {
+                    } else {
                         ++clicks;
                         B7.setText("O");
                         B7.setEnabled(false);
@@ -644,10 +644,10 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                         B7.setTextColor(Color.parseColor("#FF8C00"));
                         rotate(B7);
                     }
-                }else if(boardMatrix[1][0]=='X'){
-                    if(boardMatrix[1][2]=='O'){
+                } else if (boardMatrix[1][0] == 'X') {
+                    if (boardMatrix[1][2] == 'O') {
                         computer();
-                    }else {
+                    } else {
                         ++clicks;
                         B6.setText("O");
                         B6.setEnabled(false);
@@ -658,11 +658,11 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                     }
                 }
 
-            }else if(Xpos==1 && Ypos==2){
-                if(boardMatrix[0][1]=='X'){
-                    if(boardMatrix[0][2]=='O'){
-                     computer();
-                    }else {
+            } else if (Xpos == 1 && Ypos == 2) {
+                if (boardMatrix[0][1] == 'X') {
+                    if (boardMatrix[0][2] == 'O') {
+                        computer();
+                    } else {
                         ++clicks;
                         B3.setText("O");
                         B3.setEnabled(false);
@@ -672,11 +672,12 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                         rotate(B3);
                     }
 
-                }if(boardMatrix[0][2]=='X'){
+                }
+                if (boardMatrix[0][2] == 'X') {
                     //B9
-                    if(boardMatrix[2][2]=='O'){
+                    if (boardMatrix[2][2] == 'O') {
                         computer();
-                    }else {
+                    } else {
                         ++clicks;
                         B9.setText("O");
                         B9.setEnabled(false);
@@ -686,10 +687,11 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                         rotate(B9);
                     }
 
-                }if(boardMatrix[1][1]=='X'){
-                    if(boardMatrix[1][0]=='O'){
+                }
+                if (boardMatrix[1][1] == 'X') {
+                    if (boardMatrix[1][0] == 'O') {
                         computer();
-                    }else {
+                    } else {
                         ++clicks;
                         B4.setText("O");
                         B4.setEnabled(false);
@@ -702,11 +704,11 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                 }
 
 
-            }else if(Xpos==2 && Ypos==0){
-                if(boardMatrix[1][0]=='X'){
-                    if(boardMatrix[0][0]=='O'){
+            } else if (Xpos == 2 && Ypos == 0) {
+                if (boardMatrix[1][0] == 'X') {
+                    if (boardMatrix[0][0] == 'O') {
                         computer();
-                    }else {
+                    } else {
                         ++clicks;
                         B1.setText("O");
                         B1.setEnabled(false);
@@ -716,10 +718,10 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                         rotate(B1);
                     }
 
-                }else if(boardMatrix[1][1]=='X'){
-                    if(boardMatrix[0][2]=='O'){
+                } else if (boardMatrix[1][1] == 'X') {
+                    if (boardMatrix[0][2] == 'O') {
                         computer();
-                    }else {
+                    } else {
                         ++clicks;
                         B3.setText("O");
                         B3.setEnabled(false);
@@ -729,11 +731,11 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                         rotate(B3);
                     }
 
-                }else if(boardMatrix[0][2] == boardMatrix[2][0]){
+                } else if (boardMatrix[0][2] == boardMatrix[2][0]) {
                     //B5
-                    if(boardMatrix[1][1]=='O'){
+                    if (boardMatrix[1][1] == 'O') {
                         computer();
-                    }else {
+                    } else {
                         ++clicks;
                         B5.setText("O");
                         B5.setEnabled(false);
@@ -743,11 +745,11 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                         rotate(B5);
                     }
 
-                }else if(boardMatrix[0][0] == boardMatrix[2][0]){
+                } else if (boardMatrix[0][0] == boardMatrix[2][0]) {
                     //B4
-                    if(boardMatrix[1][0]=='O'){
+                    if (boardMatrix[1][0] == 'O') {
                         computer();
-                    }else {
+                    } else {
                         ++clicks;
                         B4.setText("O");
                         B4.setEnabled(false);
@@ -757,11 +759,11 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                         rotate(B4);
                     }
 
-                } else{
+                } else {
                     //B5
-                    if(boardMatrix[1][1]=='O'){
+                    if (boardMatrix[1][1] == 'O') {
                         computer();
-                    }else {
+                    } else {
                         ++clicks;
                         B5.setText("O");
                         B5.setEnabled(false);
@@ -773,13 +775,12 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                 }
 
 
-
-            }else if(Xpos==2 && Ypos==1){
-                if(boardMatrix[1][0]=='X'){
+            } else if (Xpos == 2 && Ypos == 1) {
+                if (boardMatrix[1][0] == 'X') {
                     //B5
-                    if(boardMatrix[1][1]=='O'){
+                    if (boardMatrix[1][1] == 'O') {
                         computer();
-                    }else {
+                    } else {
                         ++clicks;
                         B5.setText("O");
                         B5.setEnabled(false);
@@ -788,10 +789,10 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                         B5.setTextColor(Color.parseColor("#FF8C00"));
                         rotate(B5);
                     }
-                }else if(boardMatrix[1][1]=='X'){
-                    if(boardMatrix[0][1]=='O'){
+                } else if (boardMatrix[1][1] == 'X') {
+                    if (boardMatrix[0][1] == 'O') {
                         computer();
-                    }else {
+                    } else {
                         ++clicks;
                         B2.setText("O");
                         B2.setEnabled(false);
@@ -800,11 +801,11 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                         B2.setTextColor(Color.parseColor("#FF8C00"));
                         rotate(B2);
                     }
-                }else if(boardMatrix[2][0]=='X'){
+                } else if (boardMatrix[2][0] == 'X') {
                     //B9
-                    if(boardMatrix[2][2]=='O'){
+                    if (boardMatrix[2][2] == 'O') {
                         computer();
-                    }else {
+                    } else {
                         ++clicks;
                         B9.setText("O");
                         B9.setEnabled(false);
@@ -814,11 +815,11 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                         rotate(B9);
                     }
 
-                }else if(boardMatrix[0][1]==boardMatrix[2][1]){
+                } else if (boardMatrix[0][1] == boardMatrix[2][1]) {
                     //B5
-                    if(boardMatrix[1][1]=='O'){
+                    if (boardMatrix[1][1] == 'O') {
                         computer();
-                    }else {
+                    } else {
                         ++clicks;
                         B5.setText("O");
                         B5.setEnabled(false);
@@ -830,11 +831,11 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                 }
 
 
-            }else if(Xpos==2 && Ypos==2){
-                if(boardMatrix[1][1]=='X'){
-                    if(boardMatrix[0][0]=='O'){
+            } else if (Xpos == 2 && Ypos == 2) {
+                if (boardMatrix[1][1] == 'X') {
+                    if (boardMatrix[0][0] == 'O') {
                         computer();
-                    }else {
+                    } else {
                         ++clicks;
                         B1.setText("O");
                         B1.setEnabled(false);
@@ -844,10 +845,10 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                         rotate(B1);
                     }
                     //System.out.println("Think");
-                }else if(boardMatrix[1][2]=='X'){
-                    if(boardMatrix[0][2]=='O'){
+                } else if (boardMatrix[1][2] == 'X') {
+                    if (boardMatrix[0][2] == 'O') {
                         computer();
-                    }else {
+                    } else {
                         ++clicks;
                         B3.setText("O");
                         B3.setEnabled(false);
@@ -857,10 +858,10 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                         rotate(B3);
                     }
 
-                }else if(boardMatrix[2][1]=='X'){
-                    if(boardMatrix[2][0]=='O'){
+                } else if (boardMatrix[2][1] == 'X') {
+                    if (boardMatrix[2][0] == 'O') {
                         computer();
-                    }else {
+                    } else {
                         ++clicks;
                         B7.setText("O");
                         B7.setEnabled(false);
@@ -870,11 +871,11 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                         rotate(B7);
                     }
 
-                }else if(boardMatrix[2][0]=='X' && boardMatrix[2][2]=='X'){
+                } else if (boardMatrix[2][0] == 'X' && boardMatrix[2][2] == 'X') {
                     //B8
-                    if(boardMatrix[2][1]=='O'){
+                    if (boardMatrix[2][1] == 'O') {
                         computer();
-                    }else {
+                    } else {
                         ++clicks;
                         B8.setText("O");
                         B8.setEnabled(false);
@@ -885,10 +886,10 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                     }
 
 
-                } else if(boardMatrix[1][1]=='X' && boardMatrix[2][2]=='X'){
-                    if(boardMatrix[1][1]=='O'){
+                } else if (boardMatrix[1][1] == 'X' && boardMatrix[2][2] == 'X') {
+                    if (boardMatrix[1][1] == 'O') {
                         computer();
-                    }else {
+                    } else {
                         ++clicks;
                         B5.setText("O");
                         B5.setEnabled(false);
@@ -898,11 +899,11 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                         rotate(B5);
                     }
 
-                }else if(boardMatrix[0][2] == boardMatrix[2][2]){
+                } else if (boardMatrix[0][2] == boardMatrix[2][2]) {
                     //B6
-                    if(boardMatrix[1][2]=='O'){
+                    if (boardMatrix[1][2] == 'O') {
                         computer();
-                    }else {
+                    } else {
                         ++clicks;
                         B6.setText("O");
                         B6.setEnabled(false);
@@ -911,11 +912,11 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                         B6.setTextColor(Color.parseColor("#FF8C00"));
                         rotate(B6);
                     }
-                }else if(boardMatrix[2][0] == boardMatrix[2][2]){
+                } else if (boardMatrix[2][0] == boardMatrix[2][2]) {
                     //B8
-                    if(boardMatrix[2][1]=='O'){
+                    if (boardMatrix[2][1] == 'O') {
                         computer();
-                    }else {
+                    } else {
                         ++clicks;
                         B8.setText("O");
                         B8.setEnabled(false);
@@ -924,11 +925,11 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                         B8.setTextColor(Color.parseColor("#FF8C00"));
                         rotate(B8);
                     }
-                }else if(boardMatrix[0][0] == boardMatrix[2][2]){
+                } else if (boardMatrix[0][0] == boardMatrix[2][2]) {
                     //B5
-                    if(boardMatrix[1][1]=='O'){
+                    if (boardMatrix[1][1] == 'O') {
                         computer();
-                    }else {
+                    } else {
                         ++clicks;
                         B5.setText("O");
                         B5.setEnabled(false);
@@ -941,7 +942,7 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
 
             }
 
-        }else{
+        } else {
             computer();
             //clicks getting updated
 
@@ -986,7 +987,7 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                     break;
 
                     case 3: {
-                               NameIt();
+                        NameIt();
                         //clicks++;
                         Toast.makeText(getApplicationContext(), "Second Switch case Button 1", Toast.LENGTH_SHORT).show();
                     }
@@ -1599,7 +1600,7 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                 break;
             }
         }
-       // Toast.makeText(getApplicationContext(),clicks,Toast.LENGTH_LONG).show();
+        // Toast.makeText(getApplicationContext(),clicks,Toast.LENGTH_LONG).show();
     }
 
     private int gen() {
@@ -1624,7 +1625,7 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
 
         clicks = 0;
         flag = false;
-        int c=0;
+        int c = 0;
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 ++c;
