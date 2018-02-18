@@ -21,13 +21,15 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
     Button Continue, Home;
     int P1, P2, Draw;
     String MODE;
-    int Mode;
+    int Mode, Xpos, Ypos;
     Boolean flag = false;
     Random r = new Random();
     int[] buttonClicks = {0, 0, 0, 0, 0, 0, 0, 0, 0};
 
 
-    private char[][] boardMatrix = {{'1', '1', '1'}, {'1', '1', '1'}, {'1', '1', '1'}};
+    private char[][] boardMatrix = {{'1', '2', '3'},
+                                    {'4', '5', '6'},
+                                    {'7', '8', '9'}};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -441,6 +443,510 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
         return num;
     }
 
+    public boolean ComputerSecondClick() {
+
+        if (boardMatrix[0][2] == boardMatrix[1][1]) {
+            Xpos = 1;
+            Ypos = 1;
+            return true;
+        } else if (boardMatrix[1][1] == boardMatrix[2][0]) {
+            Xpos = 0;
+            Ypos = 2;
+            return true;
+        }else if(boardMatrix[0][0] == boardMatrix[2][2]){
+            Xpos = 2;
+            Ypos = 2;
+            return true;
+        }else if(boardMatrix[0][2] == boardMatrix[2][0]){
+            Xpos = 2;
+            Ypos = 0;
+            return true;
+        }else if(boardMatrix[0][0] == boardMatrix[2][0]){
+            Xpos = 2;
+            Ypos = 0;
+            return true;
+        }else if(boardMatrix[0][0] == boardMatrix[0][2]){
+            Xpos = 0;
+            Ypos = 2;
+            return true;
+        }else if(boardMatrix[0][2] == boardMatrix[2][2]){
+            Xpos = 2;
+            Ypos = 2;
+            return true;
+        }else if(boardMatrix[2][0] == boardMatrix[2][2]){
+            Xpos = 2;
+            Ypos = 2;
+            return true;
+        }
+
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+
+                //System.out.println(board[i][j]);
+
+                for (int k = i; k < 3; k++) {
+                    for (int l = j; l < 3; l++) {
+                        switch (j) {
+                            case 0: {
+                                if ((k == i && l == j) || (k == i && l == j + 2) || (k == i + 1 && l == j + 2) || (k == i + 2))
+                                    continue;
+                                if (boardMatrix[i][j] == boardMatrix[k][l]) {
+                                    Xpos = k;
+                                    Ypos = l;
+
+                                    return true;
+
+                                }
+                            }
+                                break;
+                            case 1: {
+                                if (k == i && l == j)
+                                    continue;
+                                if (boardMatrix[i][j] == boardMatrix[k][l]) {
+                                    Xpos = k;
+                                    Ypos = l;
+                                    return true;
+                                }
+                            }
+                                break;
+                            case 2: {
+                                if (k == i && l == j)
+                                    continue;
+                                if (boardMatrix[i][j] == boardMatrix[k][l]) {
+                                    Xpos = k;
+                                    Ypos = l;
+                                    return true;
+                                }
+                            }
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+            }
+        }
+
+        return false;
+    }
+    public void NameIt(){
+        if(ComputerSecondClick()){
+           // ++clicks;
+                Toast.makeText(getApplicationContext(),Xpos+"  "+Ypos,Toast.LENGTH_LONG).show();
+            if(Xpos==0 && Ypos==1){
+                if(boardMatrix[0][2]=='O'){
+                    computer();
+                }else {
+                    ++clicks;
+                    B3.setText("O");
+                    B3.setEnabled(false);
+                    boardMatrix[0][2] = 'O';
+                    buttonClicks[2] = 1;
+                    B3.setTextColor(Color.parseColor("#FF8C00"));
+                    rotate(B3);
+                }
+
+            }else if(Xpos==0 && Ypos==2){
+
+                if(boardMatrix[1][0]=='X'){
+                    if(boardMatrix[0][0]=='O'){
+                        computer();
+                    }else {
+                        ++clicks;
+                        B1.setText("O");
+                        B1.setEnabled(false);
+                        boardMatrix[0][0] = 'O';
+                        buttonClicks[0] = 1;
+                        B1.setTextColor(Color.parseColor("#FF8C00"));
+                        rotate(B1);
+                    }
+
+                }else if(boardMatrix[1][1]=='X'){
+                    if(boardMatrix[0][2]=='O'){
+                        computer();
+                    }else {
+                        ++clicks;
+                        B3.setText("O");
+                        B3.setEnabled(false);
+                        boardMatrix[0][2] = 'O';
+                        buttonClicks[2] = 1;
+                        B3.setTextColor(Color.parseColor("#FF8C00"));
+                        rotate(B3);
+                    }
+
+                }else if(boardMatrix[0][0] == boardMatrix[0][2]){
+                    //B2
+                    if(boardMatrix[0][1]=='O'){
+                        computer();
+                    }else {
+                        ++clicks;
+                        B2.setText("O");
+                        B2.setEnabled(false);
+                        boardMatrix[0][1] = 'O';
+                        buttonClicks[1] = 1;
+                        B2.setTextColor(Color.parseColor("#FF8C00"));
+                        rotate(B2);
+                    }
+                }
+
+
+
+            }else if(Xpos==1 && Ypos==0){
+                if(boardMatrix[2][0]=='O'){
+                    computer();
+                }else {
+                    ++clicks;
+                    B7.setText("O");
+                    B7.setEnabled(false);
+                    boardMatrix[2][0] = 'O';
+                    buttonClicks[6] = 1;
+                    B7.setTextColor(Color.parseColor("#FF8C00"));
+                    rotate(B7);
+                }
+
+            }else if(Xpos==1 && Ypos==1){
+
+                if(boardMatrix[0][0]=='X'){
+                    if(boardMatrix[2][2]=='O'){
+                        computer();
+                    }else {
+                        ++clicks;
+                        B9.setText("O");
+                        B9.setEnabled(false);
+                        boardMatrix[2][2] = 'O';
+                        buttonClicks[8] = 1;
+                        B9.setTextColor(Color.parseColor("#FF8C00"));
+                        rotate(B9);
+                    }
+
+                }else if(boardMatrix[0][1]=='X'){
+                    if(boardMatrix[2][1]=='O'){
+                        computer();
+                    }else {
+                        ++clicks;
+                        B8.setText("O");
+                        B8.setEnabled(false);
+                        boardMatrix[2][1] = 'O';
+                        buttonClicks[7] = 1;
+                        B8.setTextColor(Color.parseColor("#FF8C00"));
+                        rotate(B8);
+                    }
+
+                }else if(boardMatrix[0][2]=='X'){
+                    if(boardMatrix[2][0]=='O'){
+                        computer();
+                    }else {
+                        ++clicks;
+                        B7.setText("O");
+                        B7.setEnabled(false);
+                        boardMatrix[2][0] = 'O';
+                        buttonClicks[6] = 1;
+                        B7.setTextColor(Color.parseColor("#FF8C00"));
+                        rotate(B7);
+                    }
+                }else if(boardMatrix[1][0]=='X'){
+                    if(boardMatrix[1][2]=='O'){
+                        computer();
+                    }else {
+                        ++clicks;
+                        B6.setText("O");
+                        B6.setEnabled(false);
+                        boardMatrix[1][2] = 'O';
+                        buttonClicks[5] = 1;
+                        B6.setTextColor(Color.parseColor("#FF8C00"));
+                        rotate(B6);
+                    }
+                }
+
+            }else if(Xpos==1 && Ypos==2){
+                if(boardMatrix[0][1]=='X'){
+                    if(boardMatrix[0][2]=='O'){
+                     computer();
+                    }else {
+                        ++clicks;
+                        B3.setText("O");
+                        B3.setEnabled(false);
+                        boardMatrix[0][2] = 'O';
+                        buttonClicks[2] = 1;
+                        B3.setTextColor(Color.parseColor("#FF8C00"));
+                        rotate(B3);
+                    }
+
+                }if(boardMatrix[0][2]=='X'){
+                    //B9
+                    if(boardMatrix[2][2]=='O'){
+                        computer();
+                    }else {
+                        ++clicks;
+                        B9.setText("O");
+                        B9.setEnabled(false);
+                        boardMatrix[2][2] = 'O';
+                        buttonClicks[8] = 1;
+                        B9.setTextColor(Color.parseColor("#FF8C00"));
+                        rotate(B9);
+                    }
+
+                }if(boardMatrix[1][1]=='X'){
+                    if(boardMatrix[1][0]=='O'){
+                        computer();
+                    }else {
+                        ++clicks;
+                        B4.setText("O");
+                        B4.setEnabled(false);
+                        boardMatrix[1][0] = 'O';
+                        buttonClicks[3] = 1;
+                        B4.setTextColor(Color.parseColor("#FF8C00"));
+                        rotate(B4);
+                    }
+
+                }
+
+
+            }else if(Xpos==2 && Ypos==0){
+                if(boardMatrix[1][0]=='X'){
+                    if(boardMatrix[0][0]=='O'){
+                        computer();
+                    }else {
+                        ++clicks;
+                        B1.setText("O");
+                        B1.setEnabled(false);
+                        boardMatrix[0][0] = 'O';
+                        buttonClicks[0] = 1;
+                        B1.setTextColor(Color.parseColor("#FF8C00"));
+                        rotate(B1);
+                    }
+
+                }else if(boardMatrix[1][1]=='X'){
+                    if(boardMatrix[0][2]=='O'){
+                        computer();
+                    }else {
+                        ++clicks;
+                        B3.setText("O");
+                        B3.setEnabled(false);
+                        boardMatrix[0][2] = 'O';
+                        buttonClicks[2] = 1;
+                        B3.setTextColor(Color.parseColor("#FF8C00"));
+                        rotate(B3);
+                    }
+
+                }else if(boardMatrix[0][2] == boardMatrix[2][0]){
+                    //B5
+                    if(boardMatrix[1][1]=='O'){
+                        computer();
+                    }else {
+                        ++clicks;
+                        B5.setText("O");
+                        B5.setEnabled(false);
+                        boardMatrix[1][1] = 'O';
+                        buttonClicks[4] = 1;
+                        B5.setTextColor(Color.parseColor("#FF8C00"));
+                        rotate(B5);
+                    }
+
+                }else if(boardMatrix[0][0] == boardMatrix[2][0]){
+                    //B4
+                    if(boardMatrix[1][0]=='O'){
+                        computer();
+                    }else {
+                        ++clicks;
+                        B4.setText("O");
+                        B4.setEnabled(false);
+                        boardMatrix[1][0] = 'O';
+                        buttonClicks[3] = 1;
+                        B4.setTextColor(Color.parseColor("#FF8C00"));
+                        rotate(B4);
+                    }
+
+                } else{
+                    //B5
+                    if(boardMatrix[1][1]=='O'){
+                        computer();
+                    }else {
+                        ++clicks;
+                        B5.setText("O");
+                        B5.setEnabled(false);
+                        boardMatrix[1][1] = 'O';
+                        buttonClicks[4] = 1;
+                        B5.setTextColor(Color.parseColor("#FF8C00"));
+                        rotate(B5);
+                    }
+                }
+
+
+
+            }else if(Xpos==2 && Ypos==1){
+                if(boardMatrix[1][0]=='X'){
+                    //B5
+                    if(boardMatrix[1][1]=='O'){
+                        computer();
+                    }else {
+                        ++clicks;
+                        B5.setText("O");
+                        B5.setEnabled(false);
+                        boardMatrix[1][1] = 'O';
+                        buttonClicks[4] = 1;
+                        B5.setTextColor(Color.parseColor("#FF8C00"));
+                        rotate(B5);
+                    }
+                }else if(boardMatrix[1][1]=='X'){
+                    if(boardMatrix[0][1]=='O'){
+                        computer();
+                    }else {
+                        ++clicks;
+                        B2.setText("O");
+                        B2.setEnabled(false);
+                        boardMatrix[0][1] = 'O';
+                        buttonClicks[1] = 1;
+                        B2.setTextColor(Color.parseColor("#FF8C00"));
+                        rotate(B2);
+                    }
+                }else if(boardMatrix[2][0]=='X'){
+                    //B9
+                    if(boardMatrix[2][2]=='O'){
+                        computer();
+                    }else {
+                        ++clicks;
+                        B9.setText("O");
+                        B9.setEnabled(false);
+                        boardMatrix[2][2] = 'O';
+                        buttonClicks[8] = 1;
+                        B9.setTextColor(Color.parseColor("#FF8C00"));
+                        rotate(B9);
+                    }
+
+                }else if(boardMatrix[0][1]==boardMatrix[2][1]){
+                    //B5
+                    if(boardMatrix[1][1]=='O'){
+                        computer();
+                    }else {
+                        ++clicks;
+                        B5.setText("O");
+                        B5.setEnabled(false);
+                        boardMatrix[1][1] = 'O';
+                        buttonClicks[4] = 1;
+                        B5.setTextColor(Color.parseColor("#FF8C00"));
+                        rotate(B5);
+                    }
+                }
+
+
+            }else if(Xpos==2 && Ypos==2){
+                if(boardMatrix[1][1]=='X'){
+                    if(boardMatrix[0][0]=='O'){
+                        computer();
+                    }else {
+                        ++clicks;
+                        B1.setText("O");
+                        B1.setEnabled(false);
+                        boardMatrix[0][0] = 'O';
+                        buttonClicks[0] = 1;
+                        B1.setTextColor(Color.parseColor("#FF8C00"));
+                        rotate(B1);
+                    }
+                    //System.out.println("Think");
+                }else if(boardMatrix[1][2]=='X'){
+                    if(boardMatrix[0][2]=='O'){
+                        computer();
+                    }else {
+                        ++clicks;
+                        B3.setText("O");
+                        B3.setEnabled(false);
+                        boardMatrix[0][2] = 'O';
+                        buttonClicks[2] = 1;
+                        B3.setTextColor(Color.parseColor("#FF8C00"));
+                        rotate(B3);
+                    }
+
+                }else if(boardMatrix[2][1]=='X'){
+                    if(boardMatrix[2][0]=='O'){
+                        computer();
+                    }else {
+                        ++clicks;
+                        B7.setText("O");
+                        B7.setEnabled(false);
+                        boardMatrix[2][0] = 'O';
+                        buttonClicks[6] = 1;
+                        B7.setTextColor(Color.parseColor("#FF8C00"));
+                        rotate(B7);
+                    }
+
+                }else if(boardMatrix[2][0]=='X' && boardMatrix[2][2]=='X'){
+                    //B8
+                    if(boardMatrix[2][1]=='O'){
+                        computer();
+                    }else {
+                        ++clicks;
+                        B8.setText("O");
+                        B8.setEnabled(false);
+                        boardMatrix[2][1] = 'O';
+                        buttonClicks[7] = 1;
+                        B8.setTextColor(Color.parseColor("#FF8C00"));
+                        rotate(B8);
+                    }
+
+
+                } else if(boardMatrix[1][1]=='X' && boardMatrix[2][2]=='X'){
+                    if(boardMatrix[1][1]=='O'){
+                        computer();
+                    }else {
+                        ++clicks;
+                        B5.setText("O");
+                        B5.setEnabled(false);
+                        boardMatrix[1][1] = 'O';
+                        buttonClicks[4] = 1;
+                        B5.setTextColor(Color.parseColor("#FF8C00"));
+                        rotate(B5);
+                    }
+
+                }else if(boardMatrix[0][2] == boardMatrix[2][2]){
+                    //B6
+                    if(boardMatrix[1][2]=='O'){
+                        computer();
+                    }else {
+                        ++clicks;
+                        B6.setText("O");
+                        B6.setEnabled(false);
+                        boardMatrix[1][2] = 'O';
+                        buttonClicks[5] = 1;
+                        B6.setTextColor(Color.parseColor("#FF8C00"));
+                        rotate(B6);
+                    }
+                }else if(boardMatrix[2][0] == boardMatrix[2][2]){
+                    //B8
+                    if(boardMatrix[2][1]=='O'){
+                        computer();
+                    }else {
+                        ++clicks;
+                        B8.setText("O");
+                        B8.setEnabled(false);
+                        boardMatrix[2][1] = 'O';
+                        buttonClicks[7] = 1;
+                        B8.setTextColor(Color.parseColor("#FF8C00"));
+                        rotate(B8);
+                    }
+                }else if(boardMatrix[0][0] == boardMatrix[2][2]){
+                    //B5
+                    if(boardMatrix[1][1]=='O'){
+                        computer();
+                    }else {
+                        ++clicks;
+                        B5.setText("O");
+                        B5.setEnabled(false);
+                        boardMatrix[1][1] = 'O';
+                        buttonClicks[4] = 1;
+                        B5.setTextColor(Color.parseColor("#FF8C00"));
+                        rotate(B5);
+                    }
+                }
+
+            }
+
+        }else{
+            computer();
+            //clicks getting updated
+
+        }
+    }
 
     public void computer(Button b) {
 
@@ -470,7 +976,7 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                             B5.setText("O");
                             B5.setEnabled(false);
                             boardMatrix[1][1] = 'O';
-                            buttonClicks[5] = 1;
+                            buttonClicks[4] = 1;
                             B5.setTextColor(Color.parseColor("#FF8C00"));
                             rotate(B5);
                         }
@@ -480,7 +986,23 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                     break;
 
                     case 3: {
+                               NameIt();
+                        //clicks++;
                         Toast.makeText(getApplicationContext(), "Second Switch case Button 1", Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+
+                    case 5: {
+                        computer();
+                        //clicks++;
+                        Toast.makeText(getApplicationContext(), "case 5 Switch case Button 1", Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+
+                    case 7: {
+                        computer();
+                        //clicks++;
+                        Toast.makeText(getApplicationContext(), "case 7 Switch case Button 1", Toast.LENGTH_SHORT).show();
                     }
                     break;
                 }
@@ -512,7 +1034,7 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                             B5.setText("O");
                             B5.setEnabled(false);
                             boardMatrix[1][1] = 'O';
-                            buttonClicks[5] = 1;
+                            buttonClicks[4] = 1;
                             B5.setTextColor(Color.parseColor("#FF8C00"));
                             rotate(B5);
                         }
@@ -521,7 +1043,23 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                     break;
 
                     case 3: {
+                        NameIt();
+                        //clicks++;
                         Toast.makeText(getApplicationContext(), "Second Switch case Button 2", Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+
+                    case 5: {
+                        computer();
+                        //clicks++;
+                        Toast.makeText(getApplicationContext(), "case 5 Switch case Button 2", Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+
+                    case 7: {
+                        computer();
+                        //clicks++;
+                        Toast.makeText(getApplicationContext(), "case 7 Switch case Button 2", Toast.LENGTH_SHORT).show();
                     }
                     break;
                 }
@@ -552,7 +1090,7 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                             B5.setText("O");
                             B5.setEnabled(false);
                             boardMatrix[1][1] = 'O';
-                            buttonClicks[5] = 1;
+                            buttonClicks[4] = 1;
                             B5.setTextColor(Color.parseColor("#FF8C00"));
                             rotate(B5);
                         }
@@ -561,7 +1099,23 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                     break;
 
                     case 3: {
+                        NameIt();
+                        //clicks++;
                         Toast.makeText(getApplicationContext(), "Second Switch case Button 3", Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+
+                    case 5: {
+                        computer();
+                        //clicks++;
+                        Toast.makeText(getApplicationContext(), "case 5 Switch case Button 3", Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+
+                    case 7: {
+                        computer();
+                        //clicks++;
+                        Toast.makeText(getApplicationContext(), "case 7 Switch case Button 3", Toast.LENGTH_SHORT).show();
                     }
                     break;
                 }
@@ -592,7 +1146,7 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                             B5.setText("O");
                             B5.setEnabled(false);
                             boardMatrix[1][1] = 'O';
-                            buttonClicks[5] = 1;
+                            buttonClicks[4] = 1;
                             B5.setTextColor(Color.parseColor("#FF8C00"));
                             rotate(B5);
                         }
@@ -601,7 +1155,23 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                     break;
 
                     case 3: {
+                        NameIt();
+                        //clicks++;
                         Toast.makeText(getApplicationContext(), "Second Switch case Button 4", Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+
+                    case 5: {
+                        computer();
+                        //clicks++;
+                        Toast.makeText(getApplicationContext(), "case 5 Switch case Button 4", Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+
+                    case 7: {
+                        computer();
+                        //clicks++;
+                        Toast.makeText(getApplicationContext(), "case 7 Switch case Button 4", Toast.LENGTH_SHORT).show();
                     }
                     break;
                 }
@@ -675,7 +1245,23 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                     break;
 
                     case 3: {
+                        NameIt();
+                        //clicks++;
                         Toast.makeText(getApplicationContext(), "Second Switch case Button 5", Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+
+                    case 5: {
+                        computer();
+                        //clicks++;
+                        Toast.makeText(getApplicationContext(), "case 5 Switch case Button 5", Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+
+                    case 7: {
+                        computer();
+                        //clicks++;
+                        Toast.makeText(getApplicationContext(), "case 7 Switch case Button 5", Toast.LENGTH_SHORT).show();
                     }
                     break;
                 }
@@ -706,7 +1292,7 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                             B5.setText("O");
                             B5.setEnabled(false);
                             boardMatrix[1][1] = 'O';
-                            buttonClicks[5] = 1;
+                            buttonClicks[4] = 1;
                             B5.setTextColor(Color.parseColor("#FF8C00"));
                             rotate(B5);
                         }
@@ -715,7 +1301,23 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                     break;
 
                     case 3: {
+                        NameIt();
+                        //clicks++;
                         Toast.makeText(getApplicationContext(), "Second Switch case Button 6", Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+
+                    case 5: {
+                        computer();
+                        //clicks++;
+                        Toast.makeText(getApplicationContext(), "case 5 Switch case Button 6", Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+
+                    case 7: {
+                        computer();
+                        //clicks++;
+                        Toast.makeText(getApplicationContext(), "case 7 Switch case Button 6", Toast.LENGTH_SHORT).show();
                     }
                     break;
                 }
@@ -745,7 +1347,7 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                             B5.setText("O");
                             B5.setEnabled(false);
                             boardMatrix[1][1] = 'O';
-                            buttonClicks[5] = 1;
+                            buttonClicks[4] = 1;
                             B5.setTextColor(Color.parseColor("#FF8C00"));
                             rotate(B5);
                         }
@@ -754,7 +1356,23 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                     break;
 
                     case 3: {
+                        NameIt();
+                        //clicks++;
                         Toast.makeText(getApplicationContext(), "Second Switch case Button 7", Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+
+                    case 5: {
+                        computer();
+                        //clicks++;
+                        Toast.makeText(getApplicationContext(), "case 5 Switch case Button 7", Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+
+                    case 7: {
+                        computer();
+                        //clicks++;
+                        Toast.makeText(getApplicationContext(), "case 7 Switch case Button 7", Toast.LENGTH_SHORT).show();
                     }
                     break;
                 }
@@ -793,7 +1411,23 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                     break;
 
                     case 3: {
+                        NameIt();
+                        //clicks++;
                         Toast.makeText(getApplicationContext(), "Second Switch case Button 8", Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+
+                    case 5: {
+                        computer();
+                        //clicks++;
+                        Toast.makeText(getApplicationContext(), "case 5 Switch case Button 8", Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+
+                    case 7: {
+                        computer();
+                        //clicks++;
+                        Toast.makeText(getApplicationContext(), "case 7 Switch case Button 8", Toast.LENGTH_SHORT).show();
                     }
                     break;
                 }
@@ -832,7 +1466,23 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                     break;
 
                     case 3: {
+                        NameIt();
+                        //clicks++;
                         Toast.makeText(getApplicationContext(), "Second Switch case Button 9", Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+
+                    case 5: {
+                        computer();
+                        //clicks++;
+                        Toast.makeText(getApplicationContext(), "case 5 Switch case Button 9", Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+
+                    case 7: {
+                        computer();
+                        //clicks++;
+                        Toast.makeText(getApplicationContext(), "case 7 Switch case Button 9", Toast.LENGTH_SHORT).show();
                     }
                     break;
                 }
@@ -949,6 +1599,7 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                 break;
             }
         }
+       // Toast.makeText(getApplicationContext(),clicks,Toast.LENGTH_LONG).show();
     }
 
     private int gen() {
@@ -973,9 +1624,11 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
 
         clicks = 0;
         flag = false;
+        int c=0;
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                boardMatrix[i][j] = '1';
+                ++c;
+                boardMatrix[i][j] = (char) c;
             }
         }
 
