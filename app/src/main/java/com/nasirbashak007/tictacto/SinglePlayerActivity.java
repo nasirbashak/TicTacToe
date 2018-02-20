@@ -165,7 +165,7 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                     } else {
                         computer();
                     }
-                    //setRandomly();
+
                 }
             }
             break;
@@ -186,7 +186,7 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                     } else {
                         computer();
                     }
-                    //setRandomly();
+
                 }
             }
             break;
@@ -207,7 +207,7 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                     } else {
                         computer();
                     }
-                    //setRandomly();
+
                 }
             }
             break;
@@ -228,7 +228,7 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                     } else {
                         computer();
                     }
-                    //setRandomly();
+
                 }
             }
             break;
@@ -249,7 +249,7 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                     } else {
                         computer();
                     }
-                    //setRandomly();
+
                 }
             }
             break;
@@ -270,7 +270,7 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                     } else {
                         computer();
                     }
-                    //setRandomly();
+
                 }
             }
             break;
@@ -291,7 +291,7 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                     } else {
                         computer();
                     }
-                    //setRandomly();
+
                 }
             }
             break;
@@ -312,7 +312,7 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                     } else {
                         computer();
                     }
-                    //setRandomly();
+
                 }
             }
             break;
@@ -333,7 +333,7 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                     } else {
                         computer();
                     }
-                    //setRandomly();
+
                 }
             }
             break;
@@ -384,8 +384,6 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
 
             case 1: {
                 num = gen2(2, 4, 5);
-
-
             }
             break;
 
@@ -445,35 +443,43 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
 
     public boolean ComputerSecondClick() {
 
-        if (boardMatrix[0][2] == boardMatrix[1][1]) {
+        if (boardMatrix[0][2] == boardMatrix[1][1] && boardMatrix[0][2]=='X') {
             Xpos = 1;
             Ypos = 1;
             return true;
-        } else if (boardMatrix[1][1] == boardMatrix[2][0]) {
+        } else if (boardMatrix[1][1] == boardMatrix[2][0]&& boardMatrix[2][0]=='X') {
             Xpos = 0;
             Ypos = 2;
             return true;
-        } else if (boardMatrix[0][0] == boardMatrix[2][2]) {
+        } else if (boardMatrix[0][0] == boardMatrix[2][2] && boardMatrix[0][0]=='X') {//
             Xpos = 2;
             Ypos = 2;
             return true;
-        } else if (boardMatrix[0][2] == boardMatrix[2][0]) {
+        }else if (boardMatrix[0][1] == boardMatrix[1][2] && boardMatrix[0][1]=='X') {//
+            Xpos = 1;
+            Ypos = 2;
+            return true;
+        } else if (boardMatrix[0][2] == boardMatrix[2][0] && boardMatrix[0][2]=='X') {//
             Xpos = 2;
             Ypos = 0;
             return true;
-        } else if (boardMatrix[0][0] == boardMatrix[2][0]) {
+        }else if (boardMatrix[1][0] == boardMatrix[1][2] && boardMatrix[1][0]=='X') {//
+            Xpos = 1;
+            Ypos = 2;
+            return true;
+        } else if (boardMatrix[0][0] == boardMatrix[2][0] && boardMatrix[0][0]=='X') {//
             Xpos = 2;
             Ypos = 0;
             return true;
-        } else if (boardMatrix[0][0] == boardMatrix[0][2]) {
+        } else if (boardMatrix[0][0] == boardMatrix[0][2] && boardMatrix[0][2]=='X') {//
             Xpos = 0;
             Ypos = 2;
             return true;
-        } else if (boardMatrix[0][2] == boardMatrix[2][2]) {
+        } else if (boardMatrix[0][2] == boardMatrix[2][2] && boardMatrix[0][2]=='X') {//
             Xpos = 2;
             Ypos = 2;
             return true;
-        } else if (boardMatrix[2][0] == boardMatrix[2][2]) {
+        } else if (boardMatrix[2][0] == boardMatrix[2][2] && boardMatrix[2][0]=='X') {//
             Xpos = 2;
             Ypos = 2;
             return true;
@@ -482,7 +488,6 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
 
-                //System.out.println(board[i][j]);
 
                 for (int k = i; k < 3; k++) {
                     for (int l = j; l < 3; l++) {
@@ -490,7 +495,7 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                             case 0: {
                                 if ((k == i && l == j) || (k == i && l == j + 2) || (k == i + 1 && l == j + 2) || (k == i + 2))
                                     continue;
-                                if (boardMatrix[i][j] == boardMatrix[k][l]) {
+                                if (boardMatrix[i][j] == boardMatrix[k][l] && boardMatrix[i][j]=='X') {
                                     Xpos = k;
                                     Ypos = l;
 
@@ -502,7 +507,7 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                             case 1: {
                                 if (k == i && l == j)
                                     continue;
-                                if (boardMatrix[i][j] == boardMatrix[k][l]) {
+                                if (boardMatrix[i][j] == boardMatrix[k][l] && boardMatrix[i][j]=='X') {
                                     Xpos = k;
                                     Ypos = l;
                                     return true;
@@ -512,7 +517,7 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                             case 2: {
                                 if (k == i && l == j)
                                     continue;
-                                if (boardMatrix[i][j] == boardMatrix[k][l]) {
+                                if (boardMatrix[i][j] == boardMatrix[k][l] && boardMatrix[i][j]=='X') {
                                     Xpos = k;
                                     Ypos = l;
                                     return true;
@@ -531,9 +536,10 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
     }
 
     public void NameIt() {
+
         if (ComputerSecondClick()) {
             // ++clicks;
-            Toast.makeText(getApplicationContext(), Xpos + "  " + Ypos, Toast.LENGTH_LONG).show();
+           // Toast.makeText(getApplicationContext(), Xpos + "  " + Ypos, Toast.LENGTH_SHORT).show();
             if (Xpos == 0 && Ypos == 1) {
                 if (boardMatrix[0][2] == 'O') {
                     computer();
@@ -672,8 +678,7 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                         rotate(B3);
                     }
 
-                }
-                if (boardMatrix[0][2] == 'X') {
+                }else if (boardMatrix[0][2] == 'X') {
                     //B9
                     if (boardMatrix[2][2] == 'O') {
                         computer();
@@ -687,8 +692,7 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                         rotate(B9);
                     }
 
-                }
-                if (boardMatrix[1][1] == 'X') {
+                } else if (boardMatrix[1][1] == 'X') {
                     if (boardMatrix[1][0] == 'O') {
                         computer();
                     } else {
@@ -699,6 +703,19 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                         buttonClicks[3] = 1;
                         B4.setTextColor(Color.parseColor("#FF8C00"));
                         rotate(B4);
+                    }
+
+                }else if (boardMatrix[0][1] == boardMatrix[1][2]) {
+                    if (boardMatrix[1][1] == 'O') {
+                        computer();
+                    } else {
+                        ++clicks;
+                        B5.setText("O");
+                        B5.setEnabled(false);
+                        boardMatrix[1][1] = 'O';
+                        buttonClicks[4] = 1;
+                        B5.setTextColor(Color.parseColor("#FF8C00"));
+                        rotate(B5);
                     }
 
                 }
@@ -815,19 +832,6 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                         rotate(B9);
                     }
 
-                } else if (boardMatrix[0][1] == boardMatrix[2][1]) {
-                    //B5
-                    if (boardMatrix[1][1] == 'O') {
-                        computer();
-                    } else {
-                        ++clicks;
-                        B5.setText("O");
-                        B5.setEnabled(false);
-                        boardMatrix[1][1] = 'O';
-                        buttonClicks[4] = 1;
-                        B5.setTextColor(Color.parseColor("#FF8C00"));
-                        rotate(B5);
-                    }
                 }
 
 
@@ -886,7 +890,7 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                     }
 
 
-                } else if (boardMatrix[1][1] == 'X' && boardMatrix[2][2] == 'X') {
+                } else if (boardMatrix[1][1] == boardMatrix[2][2] && boardMatrix[2][2] == 'X') {
                     if (boardMatrix[1][1] == 'O') {
                         computer();
                     } else {
@@ -943,11 +947,14 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
             }
 
         } else {
+            Toast.makeText(getApplicationContext(),"computer function"+clicks,Toast.LENGTH_SHORT).show();
             computer();
             //clicks getting updated
 
         }
     }
+
+
 
     public void computer(Button b) {
 
@@ -958,6 +965,7 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                 switch (clicks) {
 
                     case 1: {
+
                         int num = generate(1);
                         if (num == 2) {
                             B2.setText("O");
@@ -989,21 +997,21 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                     case 3: {
                         NameIt();
                         //clicks++;
-                        Toast.makeText(getApplicationContext(), "Second Switch case Button 1", Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(getApplicationContext(), "Second Switch case Button 1", Toast.LENGTH_SHORT).show();
                     }
                     break;
 
                     case 5: {
-                        computer();
+                        NameIt();
                         //clicks++;
-                        Toast.makeText(getApplicationContext(), "case 5 Switch case Button 1", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getApplicationContext(), "case 5 Switch case Button 1", Toast.LENGTH_SHORT).show();
                     }
                     break;
 
                     case 7: {
-                        computer();
+                        NameIt();
                         //clicks++;
-                        Toast.makeText(getApplicationContext(), "case 7 Switch case Button 1", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getApplicationContext(), "case 7 Switch case Button 1", Toast.LENGTH_SHORT).show();
                     }
                     break;
                 }
@@ -1046,21 +1054,21 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                     case 3: {
                         NameIt();
                         //clicks++;
-                        Toast.makeText(getApplicationContext(), "Second Switch case Button 2", Toast.LENGTH_SHORT).show();
+                     //   Toast.makeText(getApplicationContext(), "Second Switch case Button 2", Toast.LENGTH_SHORT).show();
                     }
                     break;
 
                     case 5: {
-                        computer();
+                        NameIt();
                         //clicks++;
-                        Toast.makeText(getApplicationContext(), "case 5 Switch case Button 2", Toast.LENGTH_SHORT).show();
+                     //   Toast.makeText(getApplicationContext(), "case 5 Switch case Button 2", Toast.LENGTH_SHORT).show();
                     }
                     break;
 
                     case 7: {
-                        computer();
+                        NameIt();
                         //clicks++;
-                        Toast.makeText(getApplicationContext(), "case 7 Switch case Button 2", Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(getApplicationContext(), "case 7 Switch case Button 2", Toast.LENGTH_SHORT).show();
                     }
                     break;
                 }
@@ -1102,21 +1110,21 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                     case 3: {
                         NameIt();
                         //clicks++;
-                        Toast.makeText(getApplicationContext(), "Second Switch case Button 3", Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(getApplicationContext(), "Second Switch case Button 3", Toast.LENGTH_SHORT).show();
                     }
                     break;
 
                     case 5: {
-                        computer();
+                        NameIt();
                         //clicks++;
-                        Toast.makeText(getApplicationContext(), "case 5 Switch case Button 3", Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(getApplicationContext(), "case 5 Switch case Button 3", Toast.LENGTH_SHORT).show();
                     }
                     break;
 
                     case 7: {
-                        computer();
+                        NameIt();
                         //clicks++;
-                        Toast.makeText(getApplicationContext(), "case 7 Switch case Button 3", Toast.LENGTH_SHORT).show();
+                     //   Toast.makeText(getApplicationContext(), "case 7 Switch case Button 3", Toast.LENGTH_SHORT).show();
                     }
                     break;
                 }
@@ -1158,21 +1166,21 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                     case 3: {
                         NameIt();
                         //clicks++;
-                        Toast.makeText(getApplicationContext(), "Second Switch case Button 4", Toast.LENGTH_SHORT).show();
+                     //   Toast.makeText(getApplicationContext(), "Second Switch case Button 4", Toast.LENGTH_SHORT).show();
                     }
                     break;
 
                     case 5: {
-                        computer();
+                        NameIt();
                         //clicks++;
-                        Toast.makeText(getApplicationContext(), "case 5 Switch case Button 4", Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(getApplicationContext(), "case 5 Switch case Button 4", Toast.LENGTH_SHORT).show();
                     }
                     break;
 
                     case 7: {
-                        computer();
+                        NameIt();
                         //clicks++;
-                        Toast.makeText(getApplicationContext(), "case 7 Switch case Button 4", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getApplicationContext(), "case 7 Switch case Button 4", Toast.LENGTH_SHORT).show();
                     }
                     break;
                 }
@@ -1248,21 +1256,21 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                     case 3: {
                         NameIt();
                         //clicks++;
-                        Toast.makeText(getApplicationContext(), "Second Switch case Button 5", Toast.LENGTH_SHORT).show();
+                   //     Toast.makeText(getApplicationContext(), "Second Switch case Button 5", Toast.LENGTH_SHORT).show();
                     }
                     break;
 
                     case 5: {
-                        computer();
+                        NameIt();
                         //clicks++;
-                        Toast.makeText(getApplicationContext(), "case 5 Switch case Button 5", Toast.LENGTH_SHORT).show();
+                     //   Toast.makeText(getApplicationContext(), "case 5 Switch case Button 5", Toast.LENGTH_SHORT).show();
                     }
                     break;
 
                     case 7: {
-                        computer();
+                        NameIt();
                         //clicks++;
-                        Toast.makeText(getApplicationContext(), "case 7 Switch case Button 5", Toast.LENGTH_SHORT).show();
+                     //   Toast.makeText(getApplicationContext(), "case 7 Switch case Button 5", Toast.LENGTH_SHORT).show();
                     }
                     break;
                 }
@@ -1304,21 +1312,21 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                     case 3: {
                         NameIt();
                         //clicks++;
-                        Toast.makeText(getApplicationContext(), "Second Switch case Button 6", Toast.LENGTH_SHORT).show();
+                     //   Toast.makeText(getApplicationContext(), "Second Switch case Button 6", Toast.LENGTH_SHORT).show();
                     }
                     break;
 
                     case 5: {
-                        computer();
+                        NameIt();
                         //clicks++;
-                        Toast.makeText(getApplicationContext(), "case 5 Switch case Button 6", Toast.LENGTH_SHORT).show();
+                     //   Toast.makeText(getApplicationContext(), "case 5 Switch case Button 6", Toast.LENGTH_SHORT).show();
                     }
                     break;
 
                     case 7: {
-                        computer();
+                        NameIt();
                         //clicks++;
-                        Toast.makeText(getApplicationContext(), "case 7 Switch case Button 6", Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(getApplicationContext(), "case 7 Switch case Button 6", Toast.LENGTH_SHORT).show();
                     }
                     break;
                 }
@@ -1359,21 +1367,21 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                     case 3: {
                         NameIt();
                         //clicks++;
-                        Toast.makeText(getApplicationContext(), "Second Switch case Button 7", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getApplicationContext(), "Second Switch case Button 7", Toast.LENGTH_SHORT).show();
                     }
                     break;
 
                     case 5: {
-                        computer();
+                        NameIt();
                         //clicks++;
-                        Toast.makeText(getApplicationContext(), "case 5 Switch case Button 7", Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(getApplicationContext(), "case 5 Switch case Button 7", Toast.LENGTH_SHORT).show();
                     }
                     break;
 
                     case 7: {
-                        computer();
+                        NameIt();
                         //clicks++;
-                        Toast.makeText(getApplicationContext(), "case 7 Switch case Button 7", Toast.LENGTH_SHORT).show();
+                     //   Toast.makeText(getApplicationContext(), "case 7 Switch case Button 7", Toast.LENGTH_SHORT).show();
                     }
                     break;
                 }
@@ -1414,21 +1422,21 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                     case 3: {
                         NameIt();
                         //clicks++;
-                        Toast.makeText(getApplicationContext(), "Second Switch case Button 8", Toast.LENGTH_SHORT).show();
+                     //   Toast.makeText(getApplicationContext(), "Second Switch case Button 8", Toast.LENGTH_SHORT).show();
                     }
                     break;
 
                     case 5: {
-                        computer();
+                        NameIt();
                         //clicks++;
-                        Toast.makeText(getApplicationContext(), "case 5 Switch case Button 8", Toast.LENGTH_SHORT).show();
+                     //   Toast.makeText(getApplicationContext(), "case 5 Switch case Button 8", Toast.LENGTH_SHORT).show();
                     }
                     break;
 
                     case 7: {
-                        computer();
+                        NameIt();
                         //clicks++;
-                        Toast.makeText(getApplicationContext(), "case 7 Switch case Button 8", Toast.LENGTH_SHORT).show();
+                     //   Toast.makeText(getApplicationContext(), "case 7 Switch case Button 8", Toast.LENGTH_SHORT).show();
                     }
                     break;
                 }
@@ -1469,21 +1477,21 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                     case 3: {
                         NameIt();
                         //clicks++;
-                        Toast.makeText(getApplicationContext(), "Second Switch case Button 9", Toast.LENGTH_SHORT).show();
+                     //   Toast.makeText(getApplicationContext(), "Second Switch case Button 9", Toast.LENGTH_SHORT).show();
                     }
                     break;
 
                     case 5: {
-                        computer();
+                        NameIt();
                         //clicks++;
-                        Toast.makeText(getApplicationContext(), "case 5 Switch case Button 9", Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(getApplicationContext(), "case 5 Switch case Button 9", Toast.LENGTH_SHORT).show();
                     }
                     break;
 
                     case 7: {
-                        computer();
+                        NameIt();
                         //clicks++;
-                        Toast.makeText(getApplicationContext(), "case 7 Switch case Button 9", Toast.LENGTH_SHORT).show();
+                     //   Toast.makeText(getApplicationContext(), "case 7 Switch case Button 9", Toast.LENGTH_SHORT).show();
                     }
                     break;
                 }
@@ -1615,10 +1623,7 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
 
     }
 
-    @Override
-    public void onPointerCaptureChanged(boolean hasCapture) {
 
-    }
 
     public void refreshTheBoard(View view) {
         //refresh The Board
@@ -1632,6 +1637,7 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                 boardMatrix[i][j] = (char) c;
             }
         }
+
 
         for (int i = 0; i < 9; i++) {
             buttonClicks[i] = 0;
