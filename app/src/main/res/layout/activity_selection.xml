@@ -31,7 +31,7 @@
                 android:gravity="center"
                 android:onClick="startTheGameEasy"
                 android:text="Easy"
-                android:textColor="#000"
+                android:textColor="#3360da"
                 android:textSize="35dp"
                 android:textStyle="bold" />
 
@@ -41,7 +41,7 @@
                 android:gravity="center"
                 android:onClick="startTheGameMedium"
                 android:text="Medium"
-                android:textColor="#000"
+                android:textColor="#3360da"
                 android:textSize="35dp"
                 android:textStyle="bold" />
 
@@ -51,7 +51,7 @@
                 android:gravity="center"
                 android:onClick="startTheGmaeHard"
                 android:text="Hard"
-                android:textColor="#000"
+                android:textColor="#3360da"
                 android:textSize="35dp"
                 android:textStyle="bold" />
 
@@ -73,8 +73,8 @@
                 android:layout_height="wrap_content"
                 android:background="#01ae9a77"
                 android:text="1 PLAYER"
-                android:textColor="#000"
-                android:textSize="25dp"
+                android:textColor="#23ff24"
+                android:textSize="30dp"
                 android:textStyle="bold" />
         </LinearLayout>
         ​
@@ -89,6 +89,7 @@
         android:background="#02192cff"
         android:onClick="startTheGame"
         android:text="2 players"
-        android:textSize="25dp"
+        android:textColor="#23ff24"
+        android:textSize="30dp"
         android:textStyle="bold" />
 </LinearLayout>

@@ -36,7 +36,7 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
         MODE = bundle.getString("two").toString();
 
 
-        Toast.makeText(getApplicationContext(), MODE, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "2 Players Mode", Toast.LENGTH_SHORT).show();
 
 
     }
