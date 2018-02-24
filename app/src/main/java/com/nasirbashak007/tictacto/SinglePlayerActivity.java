@@ -44,14 +44,17 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
         switch (Mode) {
             case 1:
                 modeButton.setText("EASY");
+                rotate(modeButton);
                 Toast.makeText(getApplicationContext(), MODE + " Easy", Toast.LENGTH_SHORT).show();
                 break;
             case 2:
                 modeButton.setText("MEDIUM");
+                rotate(modeButton);
                 Toast.makeText(getApplicationContext(), MODE + " Medium", Toast.LENGTH_SHORT).show();
                 break;
             case 3:
                 modeButton.setText("HARD");
+                rotate(modeButton);
                 Toast.makeText(getApplicationContext(), MODE + " Hard", Toast.LENGTH_SHORT).show();
                 break;
         }
