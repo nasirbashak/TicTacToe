@@ -25,7 +25,7 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
     Boolean flag = false;
     Random r = new Random();
     int[] buttonClicks = {0, 0, 0, 0, 0, 0, 0, 0, 0};
-
+    Button modeButton;
 
     private char[][] boardMatrix = {{'1', '2', '3'},
             {'4', '5', '6'},
@@ -43,12 +43,15 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
         Mode = Integer.parseInt(MODE);
         switch (Mode) {
             case 1:
+                modeButton.setText("EASY");
                 Toast.makeText(getApplicationContext(), MODE + " Easy", Toast.LENGTH_SHORT).show();
                 break;
             case 2:
+                modeButton.setText("MEDIUM");
                 Toast.makeText(getApplicationContext(), MODE + " Medium", Toast.LENGTH_SHORT).show();
                 break;
             case 3:
+                modeButton.setText("HARD");
                 Toast.makeText(getApplicationContext(), MODE + " Hard", Toast.LENGTH_SHORT).show();
                 break;
         }
@@ -65,6 +68,8 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
         B7 = (Button) findViewById(R.id.button7);
         B8 = (Button) findViewById(R.id.button8);
         B9 = (Button) findViewById(R.id.button9);
+
+        modeButton = (Button) findViewById(R.id.buttonMode);
 
         Continue = (Button) findViewById(R.id.btn_continue);
         Home = (Button) findViewById(R.id.btn_home);
@@ -169,20 +174,50 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                     B1.setTextColor(Color.parseColor("#0b48d8"));
                     rotate(B1);
                     if (Mode == 1) {
-                        computer();
-                    } else if (Mode == 2) {
-                        computer(B1);
-                    } else if (Mode == 3) {
-                        //computer(B1);
-                        if (clicks < 5) {
-                            computer(B1);
+                        if (boardMatrix[1][1] == '5') {
+                            ++clicks;
+                            B5.setText("O");
+                            B5.setEnabled(false);
+                            boardMatrix[1][1] = 'O';
+                            buttonClicks[4] = 1;
+                            B5.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B5);
                         } else {
-                            if (!testForOPattern()) {
+                            computer();
+                        }
+                    } else if (Mode == 2) {
+                        if (boardMatrix[1][1] == '5') {
+                            ++clicks;
+                            B5.setText("O");
+                            B5.setEnabled(false);
+                            boardMatrix[1][1] = 'O';
+                            buttonClicks[4] = 1;
+                            B5.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B5);
+                        } else {
+                            computer(B1);
+                        }
+                    } else if (Mode == 3) {
+                        if (boardMatrix[1][1] == '5') {
+                            ++clicks;
+                            B5.setText("O");
+                            B5.setEnabled(false);
+                            boardMatrix[1][1] = 'O';
+                            buttonClicks[4] = 1;
+                            B5.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B5);
+                        } else {
+                            //computer(B1);
+                            if (clicks < 5) {
                                 computer(B1);
+                            } else {
+                                if (!testForOPattern()) {
+                                    computer(B1);
+                                }
                             }
                         }
 
-                    }
+                    }//End of Mode 3
                 }
             }
             break;
@@ -197,16 +232,46 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                     B2.setTextColor(Color.parseColor("#0b48d8"));
                     rotate(B2);
                     if (Mode == 1) {
-                        computer();
-                    } else if (Mode == 2) {
-                        computer(B2);
-                    } else {
-                        //computer(B2);
-                        if (clicks < 5) {
-                            computer(B2);
+                        if (boardMatrix[1][1] == '5') {
+                            ++clicks;
+                            B5.setText("O");
+                            B5.setEnabled(false);
+                            boardMatrix[1][1] = 'O';
+                            buttonClicks[4] = 1;
+                            B5.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B5);
                         } else {
-                            if (!testForOPattern()) {
+                            computer();
+                        }
+                    } else if (Mode == 2) {
+                        if (boardMatrix[1][1] == '5') {
+                            ++clicks;
+                            B5.setText("O");
+                            B5.setEnabled(false);
+                            boardMatrix[1][1] = 'O';
+                            buttonClicks[4] = 1;
+                            B5.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B5);
+                        } else {
+                            computer(B2);
+                        }
+                    } else {
+                        if (boardMatrix[1][1] == '5') {
+                            ++clicks;
+                            B5.setText("O");
+                            B5.setEnabled(false);
+                            boardMatrix[1][1] = 'O';
+                            buttonClicks[4] = 1;
+                            B5.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B5);
+                        } else {
+                            //computer(B2);
+                            if (clicks < 5) {
                                 computer(B2);
+                            } else {
+                                if (!testForOPattern()) {
+                                    computer(B2);
+                                }
                             }
                         }
                     }
@@ -225,16 +290,47 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                     B3.setTextColor(Color.parseColor("#0b48d8"));
                     rotate(B3);
                     if (Mode == 1) {
-                        computer();
-                    } else if (Mode == 2) {
-                        computer(B3);
-                    } else {
-                        //computer(B3);
-                        if (clicks < 5) {
-                            computer(B3);
+                        if (boardMatrix[1][1] == '5') {
+                            ++clicks;
+                            B5.setText("O");
+                            B5.setEnabled(false);
+                            boardMatrix[1][1] = 'O';
+                            buttonClicks[4] = 1;
+                            B5.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B5);
                         } else {
-                            if (!testForOPattern()) {
+
+                            computer();
+                        }
+                    } else if (Mode == 2) {
+                        if (boardMatrix[1][1] == '5') {
+                            ++clicks;
+                            B5.setText("O");
+                            B5.setEnabled(false);
+                            boardMatrix[1][1] = 'O';
+                            buttonClicks[4] = 1;
+                            B5.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B5);
+                        } else {
+                            computer(B3);
+                        }
+                    } else {
+                        if (boardMatrix[1][1] == '5') {
+                            ++clicks;
+                            B5.setText("O");
+                            B5.setEnabled(false);
+                            boardMatrix[1][1] = 'O';
+                            buttonClicks[4] = 1;
+                            B5.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B5);
+                        } else {
+                            //computer(B3);
+                            if (clicks < 5) {
                                 computer(B3);
+                            } else {
+                                if (!testForOPattern()) {
+                                    computer(B3);
+                                }
                             }
                         }
                     }
@@ -253,16 +349,46 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                     B4.setTextColor(Color.parseColor("#0b48d8"));
                     rotate(B4);
                     if (Mode == 1) {
-                        computer();
-                    } else if (Mode == 2) {
-                        computer(B4);
-                    } else {
-                        //computer(B4);
-                        if (clicks < 5) {
-                            computer(B4);
+                        if (boardMatrix[1][1] == '5') {
+                            ++clicks;
+                            B5.setText("O");
+                            B5.setEnabled(false);
+                            boardMatrix[1][1] = 'O';
+                            buttonClicks[4] = 1;
+                            B5.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B5);
                         } else {
-                            if (!testForOPattern()) {
+                            computer();
+                        }
+                    } else if (Mode == 2) {
+                        if (boardMatrix[1][1] == '5') {
+                            ++clicks;
+                            B5.setText("O");
+                            B5.setEnabled(false);
+                            boardMatrix[1][1] = 'O';
+                            buttonClicks[4] = 1;
+                            B5.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B5);
+                        } else {
+                            computer(B4);
+                        }
+                    } else {
+                        if (boardMatrix[1][1] == '5') {
+                            ++clicks;
+                            B5.setText("O");
+                            B5.setEnabled(false);
+                            boardMatrix[1][1] = 'O';
+                            buttonClicks[4] = 1;
+                            B5.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B5);
+                        } else {
+                            //computer(B4);
+                            if (clicks < 5) {
                                 computer(B4);
+                            } else {
+                                if (!testForOPattern()) {
+                                    computer(B4);
+                                }
                             }
                         }
                     }
@@ -281,16 +407,46 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                     B5.setTextColor(Color.parseColor("#0b48d8"));
                     rotate(B5);
                     if (Mode == 1) {
-                        computer();
-                    } else if (Mode == 2) {
-                        computer(B5);
-                    } else {
-                        // computer(B5);
-                        if (clicks < 5) {
-                            computer(B5);
+                        if (boardMatrix[1][1] == '5') {
+                            ++clicks;
+                            B5.setText("O");
+                            B5.setEnabled(false);
+                            boardMatrix[1][1] = 'O';
+                            buttonClicks[4] = 1;
+                            B5.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B5);
                         } else {
-                            if (!testForOPattern()) {
+                            computer();
+                        }
+                    } else if (Mode == 2) {
+                        if (boardMatrix[1][1] == '5') {
+                            ++clicks;
+                            B5.setText("O");
+                            B5.setEnabled(false);
+                            boardMatrix[1][1] = 'O';
+                            buttonClicks[4] = 1;
+                            B5.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B5);
+                        } else {
+                            computer(B5);
+                        }
+                    } else {
+                        if (boardMatrix[1][1] == '5') {
+                            ++clicks;
+                            B5.setText("O");
+                            B5.setEnabled(false);
+                            boardMatrix[1][1] = 'O';
+                            buttonClicks[4] = 1;
+                            B5.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B5);
+                        } else {
+                            // computer(B5);
+                            if (clicks < 5) {
                                 computer(B5);
+                            } else {
+                                if (!testForOPattern()) {
+                                    computer(B5);
+                                }
                             }
                         }
                     }
@@ -309,16 +465,46 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                     B6.setTextColor(Color.parseColor("#0b48d8"));
                     rotate(B6);
                     if (Mode == 1) {
-                        computer();
-                    } else if (Mode == 2) {
-                        computer(B6);
-                    } else {
-                        //computer(B6);
-                        if (clicks < 5) {
-                            computer(B6);
+                        if (boardMatrix[1][1] == '5') {
+                            ++clicks;
+                            B5.setText("O");
+                            B5.setEnabled(false);
+                            boardMatrix[1][1] = 'O';
+                            buttonClicks[4] = 1;
+                            B5.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B5);
                         } else {
-                            if (!testForOPattern()) {
+                            computer();
+                        }
+                    } else if (Mode == 2) {
+                        if (boardMatrix[1][1] == '5') {
+                            ++clicks;
+                            B5.setText("O");
+                            B5.setEnabled(false);
+                            boardMatrix[1][1] = 'O';
+                            buttonClicks[4] = 1;
+                            B5.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B5);
+                        } else {
+                            computer(B6);
+                        }
+                    } else {
+                        if (boardMatrix[1][1] == '5') {
+                            ++clicks;
+                            B5.setText("O");
+                            B5.setEnabled(false);
+                            boardMatrix[1][1] = 'O';
+                            buttonClicks[4] = 1;
+                            B5.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B5);
+                        } else {
+                            //computer(B6);
+                            if (clicks < 5) {
                                 computer(B6);
+                            } else {
+                                if (!testForOPattern()) {
+                                    computer(B6);
+                                }
                             }
                         }
                     }
@@ -337,16 +523,46 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                     B7.setTextColor(Color.parseColor("#0b48d8"));
                     rotate(B7);
                     if (Mode == 1) {
-                        computer();
-                    } else if (Mode == 2) {
-                        computer(B7);
-                    } else {
-                        //computer(B7);
-                        if (clicks < 5) {
-                            computer(B7);
+                        if (boardMatrix[1][1] == '5') {
+                            ++clicks;
+                            B5.setText("O");
+                            B5.setEnabled(false);
+                            boardMatrix[1][1] = 'O';
+                            buttonClicks[4] = 1;
+                            B5.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B5);
                         } else {
-                            if (!testForOPattern()) {
+                            computer();
+                        }
+                    } else if (Mode == 2) {
+                        if (boardMatrix[1][1] == '5') {
+                            ++clicks;
+                            B5.setText("O");
+                            B5.setEnabled(false);
+                            boardMatrix[1][1] = 'O';
+                            buttonClicks[4] = 1;
+                            B5.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B5);
+                        } else {
+                            computer(B7);
+                        }
+                    } else {
+                        if (boardMatrix[1][1] == '5') {
+                            ++clicks;
+                            B5.setText("O");
+                            B5.setEnabled(false);
+                            boardMatrix[1][1] = 'O';
+                            buttonClicks[4] = 1;
+                            B5.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B5);
+                        } else {
+                            //computer(B7);
+                            if (clicks < 5) {
                                 computer(B7);
+                            } else {
+                                if (!testForOPattern()) {
+                                    computer(B7);
+                                }
                             }
                         }
                     }
@@ -365,16 +581,46 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                     B8.setTextColor(Color.parseColor("#0b48d8"));
                     rotate(B8);
                     if (Mode == 1) {
-                        computer();
-                    } else if (Mode == 2) {
-                        computer(B8);
-                    } else {
-                        //computer(B8);
-                        if (clicks < 5) {
-                            computer(B8);
+                        if (boardMatrix[1][1] == '5') {
+                            ++clicks;
+                            B5.setText("O");
+                            B5.setEnabled(false);
+                            boardMatrix[1][1] = 'O';
+                            buttonClicks[4] = 1;
+                            B5.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B5);
                         } else {
-                            if (!testForOPattern()) {
+                            computer();
+                        }
+                    } else if (Mode == 2) {
+                        if (boardMatrix[1][1] == '5') {
+                            ++clicks;
+                            B5.setText("O");
+                            B5.setEnabled(false);
+                            boardMatrix[1][1] = 'O';
+                            buttonClicks[4] = 1;
+                            B5.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B5);
+                        } else {
+                            computer(B8);
+                        }
+                    } else {
+                        if (boardMatrix[1][1] == '5') {
+                            ++clicks;
+                            B5.setText("O");
+                            B5.setEnabled(false);
+                            boardMatrix[1][1] = 'O';
+                            buttonClicks[4] = 1;
+                            B5.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B5);
+                        } else {
+                            //computer(B8);
+                            if (clicks < 5) {
                                 computer(B8);
+                            } else {
+                                if (!testForOPattern()) {
+                                    computer(B8);
+                                }
                             }
                         }
                     }
@@ -393,16 +639,46 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                     B9.setTextColor(Color.parseColor("#0b48d8"));
                     rotate(B9);
                     if (Mode == 1) {
-                        computer();
-                    } else if (Mode == 2) {
-                        computer(B9);
-                    } else {
-                        //computer(B9);
-                        if (clicks < 5) {
-                            computer(B9);
+                        if (boardMatrix[1][1] == '5') {
+                            ++clicks;
+                            B5.setText("O");
+                            B5.setEnabled(false);
+                            boardMatrix[1][1] = 'O';
+                            buttonClicks[4] = 1;
+                            B5.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B5);
                         } else {
-                            if (!testForOPattern()) {
+                            computer();
+                        }
+                    } else if (Mode == 2) {
+                        if (boardMatrix[1][1] == '5') {
+                            ++clicks;
+                            B5.setText("O");
+                            B5.setEnabled(false);
+                            boardMatrix[1][1] = 'O';
+                            buttonClicks[4] = 1;
+                            B5.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B5);
+                        } else {
+                            computer(B9);
+                        }
+                    } else {
+                        if (boardMatrix[1][1] == '5') {
+                            ++clicks;
+                            B5.setText("O");
+                            B5.setEnabled(false);
+                            boardMatrix[1][1] = 'O';
+                            buttonClicks[4] = 1;
+                            B5.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B5);
+                        } else {
+                            //computer(B9);
+                            if (clicks < 5) {
                                 computer(B9);
+                            } else {
+                                if (!testForOPattern()) {
+                                    computer(B9);
+                                }
                             }
                         }
                     }
@@ -442,10 +718,10 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
     public int ForFifthCase() {
 
         int num = r.nextInt(9) + 1;
-        if (num == 5) {
-            return ForFifthCase();
-        } else {
+        if (num == 1 || num == 3 || num == 7 || num == 9) {
             return num;
+        } else {
+            return ForFifthCase();
         }
     }
 
@@ -456,24 +732,24 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
         switch (n) {
 
             case 1: {
-                num = gen2(2, 4, 5);
+                num = gen2(3, 7, 9);
             }
             break;
 
             case 2: {
-                num = gen2(1, 3, 5);
+                num = gen2(7, 8, 9);
             }
             break;
 
             case 3: {
-                num = gen2(2, 5, 6);
+                num = gen2(1, 7, 9);
 
             }
             break;
 
             case 4: {
 
-                num = gen2(1, 5, 7);
+                num = gen2(3, 6, 9);
 
             }
             break;
@@ -486,25 +762,25 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
             break;
 
             case 6: {
-                num = gen2(3, 5, 9);
+                num = gen2(1, 4, 7);
 
             }
             break;
 
             case 7: {
-                num = gen2(4, 5, 8);
+                num = gen2(1, 3, 9);
 
             }
             break;
 
             case 8: {
-                num = gen2(5, 7, 9);
+                num = gen2(1, 2, 3);
 
             }
             break;
 
             case 9: {
-                num = gen2(5, 6, 8);
+                num = gen2(1, 3, 7);
             }
             break;
 
@@ -1604,27 +1880,27 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                     case 1: {
 
                         int num = generate(1);
-                        if (num == 2) {
-                            B2.setText("O");
-                            B2.setEnabled(false);
-                            boardMatrix[0][1] = 'O';
-                            buttonClicks[1] = 1;
-                            B2.setTextColor(Color.parseColor("#FF8C00"));
-                            rotate(B2);
-                        } else if (num == 4) {
-                            B4.setText("O");
-                            B4.setEnabled(false);
-                            boardMatrix[1][0] = 'O';
-                            buttonClicks[3] = 1;
-                            B4.setTextColor(Color.parseColor("#FF8C00"));
-                            rotate(B4);
-                        } else if (num == 5) {
-                            B5.setText("O");
-                            B5.setEnabled(false);
-                            boardMatrix[1][1] = 'O';
-                            buttonClicks[4] = 1;
-                            B5.setTextColor(Color.parseColor("#FF8C00"));
-                            rotate(B5);
+                        if (num == 3) {
+                            B3.setText("O");
+                            B3.setEnabled(false);
+                            boardMatrix[0][2] = 'O';
+                            buttonClicks[2] = 1;
+                            B3.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B3);
+                        } else if (num == 7) {
+                            B7.setText("O");
+                            B7.setEnabled(false);
+                            boardMatrix[2][0] = 'O';
+                            buttonClicks[6] = 1;
+                            B7.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B7);
+                        } else if (num == 9) {
+                            B9.setText("O");
+                            B9.setEnabled(false);
+                            boardMatrix[2][2] = 'O';
+                            buttonClicks[8] = 1;
+                            B9.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B9);
                         }
                         clicks++;
 
@@ -1662,27 +1938,27 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
 
 
                         int num = generate(2);
-                        if (num == 1) {
-                            B1.setText("O");
-                            B1.setEnabled(false);
-                            boardMatrix[0][0] = 'O';
-                            buttonClicks[0] = 1;
-                            B1.setTextColor(Color.parseColor("#FF8C00"));
-                            rotate(B1);
-                        } else if (num == 3) {
-                            B3.setText("O");
-                            B3.setEnabled(false);
-                            boardMatrix[0][2] = 'O';
-                            buttonClicks[2] = 1;
-                            B3.setTextColor(Color.parseColor("#FF8C00"));
-                            rotate(B3);
-                        } else if (num == 5) {
-                            B5.setText("O");
-                            B5.setEnabled(false);
-                            boardMatrix[1][1] = 'O';
-                            buttonClicks[4] = 1;
-                            B5.setTextColor(Color.parseColor("#FF8C00"));
-                            rotate(B5);
+                        if (num == 7) {
+                            B7.setText("O");
+                            B7.setEnabled(false);
+                            boardMatrix[2][0] = 'O';
+                            buttonClicks[6] = 1;
+                            B7.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B7);
+                        } else if (num == 8) {
+                            B8.setText("O");
+                            B8.setEnabled(false);
+                            boardMatrix[2][1] = 'O';
+                            buttonClicks[7] = 1;
+                            B8.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B8);
+                        } else if (num == 9) {
+                            B9.setText("O");
+                            B9.setEnabled(false);
+                            boardMatrix[2][2] = 'O';
+                            buttonClicks[8] = 1;
+                            B9.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B9);
                         }
                         clicks++;
                     }
@@ -1718,27 +1994,27 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
                     case 1: {
 
                         int num = generate(3);
-                        if (num == 2) {
-                            B2.setText("O");
-                            B2.setEnabled(false);
-                            boardMatrix[0][1] = 'O';
-                            buttonClicks[1] = 1;
-                            B2.setTextColor(Color.parseColor("#FF8C00"));
-                            rotate(B2);
-                        } else if (num == 6) {
-                            B6.setText("O");
-                            B6.setEnabled(false);
-                            boardMatrix[1][2] = 'O';
-                            buttonClicks[5] = 1;
-                            B6.setTextColor(Color.parseColor("#FF8C00"));
-                            rotate(B6);
-                        } else if (num == 5) {
-                            B5.setText("O");
-                            B5.setEnabled(false);
-                            boardMatrix[1][1] = 'O';
-                            buttonClicks[4] = 1;
-                            B5.setTextColor(Color.parseColor("#FF8C00"));
-                            rotate(B5);
+                        if (num == 1) {
+                            B1.setText("O");
+                            B1.setEnabled(false);
+                            boardMatrix[0][0] = 'O';
+                            buttonClicks[0] = 1;
+                            B1.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B1);
+                        } else if (num == 7) {
+                            B7.setText("O");
+                            B7.setEnabled(false);
+                            boardMatrix[2][0] = 'O';
+                            buttonClicks[6] = 1;
+                            B7.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B7);
+                        } else if (num == 9) {
+                            B9.setText("O");
+                            B9.setEnabled(false);
+                            boardMatrix[2][2] = 'O';
+                            buttonClicks[8] = 1;
+                            B9.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B9);
                         }
                         clicks++;
                     }
@@ -1774,27 +2050,27 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
 
                     case 1: {
                         int num = generate(4);
-                        if (num == 1) {
-                            B1.setText("O");
-                            B1.setEnabled(false);
-                            boardMatrix[0][0] = 'O';
-                            buttonClicks[0] = 1;
-                            B1.setTextColor(Color.parseColor("#FF8C00"));
-                            rotate(B1);
-                        } else if (num == 7) {
-                            B7.setText("O");
-                            B7.setEnabled(false);
-                            boardMatrix[2][0] = 'O';
-                            buttonClicks[6] = 1;
-                            B7.setTextColor(Color.parseColor("#FF8C00"));
-                            rotate(B7);
-                        } else if (num == 5) {
-                            B5.setText("O");
-                            B5.setEnabled(false);
-                            boardMatrix[1][1] = 'O';
-                            buttonClicks[4] = 1;
-                            B5.setTextColor(Color.parseColor("#FF8C00"));
-                            rotate(B5);
+                        if (num == 3) {
+                            B3.setText("O");
+                            B3.setEnabled(false);
+                            boardMatrix[0][2] = 'O';
+                            buttonClicks[2] = 1;
+                            B3.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B3);
+                        } else if (num == 6) {
+                            B6.setText("O");
+                            B6.setEnabled(false);
+                            boardMatrix[1][2] = 'O';
+                            buttonClicks[5] = 1;
+                            B6.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B6);
+                        } else if (num == 9) {
+                            B9.setText("O");
+                            B9.setEnabled(false);
+                            boardMatrix[2][2] = 'O';
+                            buttonClicks[8] = 1;
+                            B9.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B9);
                         }
                         clicks++;
                     }
@@ -1920,27 +2196,27 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
 
                     case 1: {
                         int num = generate(6);
-                        if (num == 3) {
-                            B3.setText("O");
-                            B3.setEnabled(false);
-                            boardMatrix[0][2] = 'O';
-                            buttonClicks[2] = 1;
-                            B3.setTextColor(Color.parseColor("#FF8C00"));
-                            rotate(B3);
-                        } else if (num == 9) {
-                            B9.setText("O");
-                            B9.setEnabled(false);
-                            boardMatrix[2][2] = 'O';
-                            buttonClicks[8] = 1;
-                            B9.setTextColor(Color.parseColor("#FF8C00"));
-                            rotate(B9);
-                        } else if (num == 5) {
-                            B5.setText("O");
-                            B5.setEnabled(false);
-                            boardMatrix[1][1] = 'O';
-                            buttonClicks[4] = 1;
-                            B5.setTextColor(Color.parseColor("#FF8C00"));
-                            rotate(B5);
+                        if (num == 1) {
+                            B1.setText("O");
+                            B1.setEnabled(false);
+                            boardMatrix[0][0] = 'O';
+                            buttonClicks[0] = 1;
+                            B1.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B1);
+                        } else if (num == 4) {
+                            B4.setText("O");
+                            B4.setEnabled(false);
+                            boardMatrix[1][0] = 'O';
+                            buttonClicks[3] = 1;
+                            B4.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B4);
+                        } else if (num == 7) {
+                            B7.setText("O");
+                            B7.setEnabled(false);
+                            boardMatrix[2][0] = 'O';
+                            buttonClicks[6] = 1;
+                            B7.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B7);
                         }
                         clicks++;
                     }
@@ -1975,27 +2251,27 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
 
                     case 1: {
                         int num = generate(7);
-                        if (num == 8) {
-                            B8.setText("O");
-                            B8.setEnabled(false);
-                            boardMatrix[2][1] = 'O';
-                            buttonClicks[7] = 1;
-                            B8.setTextColor(Color.parseColor("#FF8C00"));
-                            rotate(B8);
-                        } else if (num == 4) {
-                            B4.setText("O");
-                            B4.setEnabled(false);
-                            boardMatrix[1][0] = 'O';
-                            buttonClicks[3] = 1;
-                            B4.setTextColor(Color.parseColor("#FF8C00"));
-                            rotate(B4);
-                        } else if (num == 5) {
-                            B5.setText("O");
-                            B5.setEnabled(false);
-                            boardMatrix[1][1] = 'O';
-                            buttonClicks[4] = 1;
-                            B5.setTextColor(Color.parseColor("#FF8C00"));
-                            rotate(B5);
+                        if (num == 1) {
+                            B1.setText("O");
+                            B1.setEnabled(false);
+                            boardMatrix[0][0] = 'O';
+                            buttonClicks[0] = 1;
+                            B1.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B1);
+                        } else if (num == 3) {
+                            B3.setText("O");
+                            B3.setEnabled(false);
+                            boardMatrix[0][2] = 'O';
+                            buttonClicks[2] = 1;
+                            B3.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B3);
+                        } else if (num == 9) {
+                            B9.setText("O");
+                            B9.setEnabled(false);
+                            boardMatrix[2][2] = 'O';
+                            buttonClicks[8] = 1;
+                            B9.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B9);
                         }
                         clicks++;
                     }
@@ -2030,27 +2306,27 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
 
                     case 1: {
                         int num = generate(8);
-                        if (num == 7) {
-                            B7.setText("O");
-                            B7.setEnabled(false);
-                            boardMatrix[2][0] = 'O';
-                            buttonClicks[6] = 1;
-                            B7.setTextColor(Color.parseColor("#FF8C00"));
-                            rotate(B7);
-                        } else if (num == 9) {
-                            B9.setText("O");
-                            B9.setEnabled(false);
-                            boardMatrix[2][2] = 'O';
-                            buttonClicks[8] = 1;
-                            B9.setTextColor(Color.parseColor("#FF8C00"));
-                            rotate(B9);
-                        } else if (num == 5) {
-                            B5.setText("O");
-                            B5.setEnabled(false);
-                            boardMatrix[1][1] = 'O';
-                            buttonClicks[4] = 1;
-                            B5.setTextColor(Color.parseColor("#FF8C00"));
-                            rotate(B5);
+                        if (num == 1) {
+                            B1.setText("O");
+                            B1.setEnabled(false);
+                            boardMatrix[0][0] = 'O';
+                            buttonClicks[0] = 1;
+                            B1.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B1);
+                        } else if (num == 2) {
+                            B2.setText("O");
+                            B2.setEnabled(false);
+                            boardMatrix[0][1] = 'O';
+                            buttonClicks[1] = 1;
+                            B2.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B2);
+                        } else if (num == 3) {
+                            B3.setText("O");
+                            B3.setEnabled(false);
+                            boardMatrix[0][2] = 'O';
+                            buttonClicks[2] = 1;
+                            B3.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B3);
                         }
                         clicks++;
                     }
@@ -2085,27 +2361,27 @@ public class SinglePlayerActivity extends AppCompatActivity implements View.OnCl
 
                     case 1: {
                         int num = generate(9);
-                        if (num == 8) {
-                            B8.setText("O");
-                            B8.setEnabled(false);
-                            boardMatrix[2][1] = 'O';
-                            buttonClicks[7] = 1;
-                            B8.setTextColor(Color.parseColor("#FF8C00"));
-                            rotate(B8);
-                        } else if (num == 6) {
-                            B6.setText("O");
-                            B6.setEnabled(false);
-                            boardMatrix[1][2] = 'O';
-                            buttonClicks[5] = 1;
-                            B6.setTextColor(Color.parseColor("#FF8C00"));
-                            rotate(B6);
-                        } else if (num == 5) {
-                            B5.setText("O");
-                            B5.setEnabled(false);
-                            boardMatrix[1][1] = 'O';
-                            buttonClicks[4] = 1;
-                            B5.setTextColor(Color.parseColor("#FF8C00"));
-                            rotate(B5);
+                        if (num == 1) {
+                            B1.setText("O");
+                            B1.setEnabled(false);
+                            boardMatrix[0][0] = 'O';
+                            buttonClicks[0] = 1;
+                            B1.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B1);
+                        } else if (num == 3) {
+                            B3.setText("O");
+                            B3.setEnabled(false);
+                            boardMatrix[0][2] = 'O';
+                            buttonClicks[2] = 1;
+                            B3.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B3);
+                        } else if (num == 7) {
+                            B7.setText("O");
+                            B7.setEnabled(false);
+                            boardMatrix[2][0] = 'O';
+                            buttonClicks[6] = 1;
+                            B7.setTextColor(Color.parseColor("#FF8C00"));
+                            rotate(B7);
                         }
                         clicks++;
                     }

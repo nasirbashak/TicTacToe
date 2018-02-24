@@ -208,6 +208,7 @@
             android:textColor="#fff"
             android:textStyle="bold" />
 
+
         <Button
             android:id="@+id/btn_home"
             android:layout_width="150dp"

@@ -21,7 +21,7 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
     int P1, P2, Draw;
     String MODE;
     Boolean flag = false;
-
+    Button modeButton;
 
     private char[][] boardMatrix = {{'1', '2', '3'}, {'4', '5', '6'}, {'7', '8', '9'}};
     String board;
@@ -51,6 +51,7 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
         B7 = (Button) findViewById(R.id.button7);
         B8 = (Button) findViewById(R.id.button8);
         B9 = (Button) findViewById(R.id.button9);
+
 
         Continue = (Button) findViewById(R.id.btn_continue);
         Home = (Button) findViewById(R.id.btn_home);
