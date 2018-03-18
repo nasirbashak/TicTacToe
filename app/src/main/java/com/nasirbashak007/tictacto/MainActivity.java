@@ -1,6 +1,7 @@
 package com.nasirbashak007.tictacto;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,7 +14,7 @@ import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView name;
+    TextView name,MarqueeText;
     Button start, exit, about;
     Animation topToBottom, bottomToTop, leftToRight;
 
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         name = (TextView) findViewById(R.id.text_name);
+        MarqueeText = (TextView) findViewById(R.id.MarqueeText);
         start = (Button) findViewById(R.id.button_start);
         exit = (Button) findViewById(R.id.button_exit);
         about = (Button) findViewById(R.id.button_about);
@@ -35,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
 
         leftToRight = AnimationUtils.loadAnimation(this, R.anim.left_to_right_linear);
         about.startAnimation(leftToRight);
+        MarqueeText.setSelected(true);
+        MarqueeText.setText("- - - - - - - - - - - - - - -> N A S I R  B A S H A  K <- - - - - - - - - - - - - - -");
 
     }
 
@@ -49,6 +53,15 @@ public class MainActivity extends AppCompatActivity {
 
     public void diplaytext(View view) {
         String text = "Nasir Basha K";
+        String symbol ="- - - - - - - - - - - - - - -> ☝ ☝ ☝ ☝ ☝ ☝ ☝ ☝ ☝ ☝ ☝ ☝ <- - - - - - - - - - - - - - -";
+        MarqueeText.setText(symbol);
         name.setText(text);
+    }
+
+    public void OpenFB(View view) {
+        Uri uri = Uri.parse("https://www.facebook.com/nasir.basha.338"); // missing 'http://' will cause crashed
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        startActivity(intent);
+
     }
 }

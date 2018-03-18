@@ -51,6 +51,22 @@
         android:layout_marginTop="50dp"
         android:textColor="#fff"
         android:textSize="30dp"
+        android:onClick="OpenFB"
         android:textStyle="italic|bold" />
+
+    <TextView
+        android:textSize="20dp"
+        android:id="@+id/MarqueeText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:scrollHorizontally="true"
+        android:paddingLeft="15dip"
+        android:paddingRight="15dip"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:freezesText="true"/>
 
 </LinearLayout>
