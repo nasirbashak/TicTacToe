@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#e4b704"
+    android:background="#000000"
     android:orientation="vertical"
     tools:context="com.nasirbashak007.tictacto.SinglePlayerActivity">
 
@@ -26,6 +26,7 @@
             android:text="P - 1 : 0"
             android:textSize="20dp"
             android:textStyle="bold"
+            android:textColor="#ffffff"
             tools:ignore="HardcodedText" />
 
         <TextView
@@ -38,6 +39,7 @@
             android:text="Draw : 0"
             android:textSize="20dp"
             android:textStyle="bold"
+            android:textColor="#ffffff"
             tools:ignore="HardcodedText" />
 
         <TextView
@@ -48,6 +50,7 @@
             android:text="P - 2 : 0"
             android:textSize="20dp"
             android:textStyle="bold"
+            android:textColor="#ffffff"
             tools:ignore="HardcodedText" />
 
 
